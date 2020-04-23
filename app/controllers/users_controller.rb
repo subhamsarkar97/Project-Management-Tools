@@ -7,11 +7,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(post_params)
-    flash[:success] = "Welcome to the Sample App!"
-
-    session[:user_id] = @user.id
-    redirect_to authorized_path 
+    @user = User.new(post_params)
+    if @user.save
+        flash[:success] = "Welcome to the Sample App!"
+        session[:user_id] = @user.id
+        redirect_to authorized_path
+    else
+        redirect_to new_user_path
+    end    
+        
   end
   
   private 
