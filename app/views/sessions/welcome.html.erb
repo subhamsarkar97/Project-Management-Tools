@@ -1,0 +1,28 @@
+<section class="container">
+<nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#"><h1>Project Management Tool</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <%= link_to "login", login_path , method: :get, :class => "custom"%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Sign up", new_user_path , method: :get,:class => "custom"%>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>
+<div class="welcome_section">
+    <section class="container">    
+        <h1 class="text-center">Welcome to the Project</h1>
+        <p class="text-center">This is a project to manage and assign project</p>
+        <%= link_to "Sign up Now", new_user_path ,method: :get, :class => "btn btn-primary button"%>
+    </section>
+</div>
+      
+
+
