@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get sessions_new_url
+    get sessions_create_url
     assert_response :success
   end
 
@@ -17,7 +17,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get welcome" do
-    get sessions_welcome_url
+    get :welcome
     assert_response :success
   end
 
