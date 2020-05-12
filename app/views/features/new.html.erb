@@ -1,0 +1,61 @@
+<section class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <h1>Project Management Tool</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> 
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <%= link_to "LOG OUT", welcome_path , method: :delete%>
+                </li>
+            </ul>
+        </div>
+    </nav> 
+</section>
+<hr>
+<section class="container">
+    <h4>Create New Feature</h4>
+    <%= form_for(@feature, html: { multipart: true }) do |f| %>
+    
+        <div class="field">
+            <%= f.label :title %><br>
+            <%= f.text_field :title, placeholder: "Title..." %><br>
+        </div>
+        <div class="field">
+            <%= f.label :description %><br>
+            <%= f.text_area :description, placeholder: "Description..." %><br>
+        </div><br>
+        <span class="picture">
+            <%= f.file_field :picture %>
+        </span><br><br>
+        <%= f.submit "Feature", class: "btn btn-primary" %>
+      <% end %>   
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

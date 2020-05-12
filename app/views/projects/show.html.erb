@@ -101,17 +101,17 @@ function btn3(){
 <div class="row">
     <div class="col-md-4" id="col1">
         <h4>Current Iteration</h4>
-        
+        <%= link_to "+ Add Feature", new_feature_path({key: "Current_itteration"}) , method: :get, :class=> "custom1"%><br>
         <button onclick="btn1()"class="btn"><i class="fa fa-close"></i></button>
     </div>
     <div class="col-md-4" id="col2">
         <h4>Backlog</h4>
-        
+        <%= link_to "+ Add Feature", new_feature_path({key: "Backlog"}), method: :get, :class=> "custom1"%><br>
         <button onclick="btn2()" class="btn"><i class="fa fa-close"></i></button>
     </div>
     <div class="col-md-4" id="col3">
         <h4>Icebox</h4>
-        
+        <%= link_to "+ Add Feature", new_feature_path({key: "Icebox"}), method: :get, :class=> "custom1"%><br>
         <button onclick="btn3()" class="btn"><i class="fa fa-close"></i></button>
     </div>
         

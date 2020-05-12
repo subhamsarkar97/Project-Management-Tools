@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
         @project = @user.projects.build(post_params)
 
         if @project.save
+            session[:project_id] = @project.id
             redirect_to user_projects_profile_path
         else
             redirect_to new_user_project_path
@@ -21,7 +22,7 @@ class ProjectsController < ApplicationController
         @user = User.find(params[:user_id])
         
     end   
-    
+ 
     private 
     def post_params
         params.require(:project).permit(:projectname)
