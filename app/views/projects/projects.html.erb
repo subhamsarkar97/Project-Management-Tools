@@ -9,20 +9,25 @@
                 <li class="nav-item active">
                     <%= link_to "LOG OUT", welcome_path , method: :delete%>
                 </li>
+                
                 <li class="nav-item active">
-                    <%= link_to "PROJECT", user_projects_profile_path(@user) , method: :get, :class => "custom2" %>
+                    <%= link_to "PROFILE", user_path(@user) , method: :get, :class => "custom2" %>
                 </li>
+                <li class="nav-item active">
+                    <%= link_to "CREATE PROJECT", create_project_path , method: :get, :class => "custom2" %>
+                </li>
+
             </ul>
         </div>
     </nav> 
 </section>
-<div class="auth_section">
-    <section class="container">    
-        <h1 class="text-center">Welcome</h1>
-        <p class="text-center">This is our home page click the below button to Create Project</p>
-        <%= link_to " Create Project", create_project_path ,method: :get, :class => "btn btn-primary button fa fa-plus-circle"%>
-        
-    </section>
-</div>
-
-      
+<section class="container">
+    <h2 class="text-center">DashBoard</h2> 
+    
+    <h4><%=pluralize(@user.projects.count,"Project")%></h4><br>
+    <hr>
+    <ol>
+        <%= render @user.projects %>
+    </ol>
+    
+</section>

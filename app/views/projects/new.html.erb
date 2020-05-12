@@ -1,9 +1,0 @@
-<%= render 'navbar' %>
-<section class="container">
-    <h4>Create New Project</h4>
-    <%= form_for @project do |project| %>
-        <%= project.label :projectname %>
-        <%= project.text_field :projectname %><br><br>
-        <%= project.button :submit, :class => "btn btn-primary"%>
-    <%end%>    
-</section>

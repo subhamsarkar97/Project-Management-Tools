@@ -18,10 +18,14 @@ class UsersController < ApplicationController
     end    
         
   end
+
+  def createproject
+    @user = current_user
+  end  
   
   def show
     @user = User.find(params[:id])
-  end   
+  end
   
   private 
   def post_params
