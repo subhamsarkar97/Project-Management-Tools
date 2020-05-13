@@ -3,16 +3,15 @@ class FeaturesController < ApplicationController
     
     def new
         @feature = current_project.features.build
-
     end
     
     def create
         @feature = current_project.features.build(features_params)
         if @feature.save
           flash[:success] = "Feature created!"
-          redirect_to 
+          redirect_to @feature 
         else
-          redirect_to 
+          redirect_to new_feature_path
         end
     end
 

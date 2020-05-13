@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
     def show
         @user = User.find(params[:user_id])
         @project = @user.projects.find(params[:id])
+        session[:project_id] = @project.id
     end   
     
     def projects
