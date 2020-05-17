@@ -29,6 +29,7 @@
         <span class="picture">
             <%= f.file_field :picture %>
         </span><br><br>
+        <%=f.hidden_field :project_id, value: params[:project_id]%>
         <%= f.submit "Feature", class: "btn btn-primary" %>
       <% end %>   
 </section>
