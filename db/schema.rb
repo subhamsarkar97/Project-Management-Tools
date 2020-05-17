@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_103332) do
+ActiveRecord::Schema.define(version: 2020_05_17_114741) do
 
   create_table "features", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 2020_05_12_103332) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id"
     t.string "picture"
+    t.string "status"
+    t.integer "user_id"
+    t.string "panel"
+    t.string "panels"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "taskname"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "feature_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -28,11 +40,29 @@ ActiveRecord::Schema.define(version: 2020_05_12_103332) do
     t.integer "user_id"
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.string "keywords"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "taskname"
+    t.text "taskdesc"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "feature_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "firstname"
+    t.string "lastname"
+    t.string "gender"
   end
 
 end

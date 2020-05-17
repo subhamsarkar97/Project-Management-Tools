@@ -1,2 +1,36 @@
-<%=@feature.title%>
-<%=@feature.description%>
+<section class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <h1>Project Management Tool</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> 
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <%= link_to "LOG OUT", welcome_path , method: :delete%>
+                </li>
+            </ul>
+        </div>
+    </nav> 
+</section>
+<section class="container">
+    <h3>About Feature</h3>
+    <hr>
+    
+    <h3>Feature Information  </h3><br>
+
+    <h4>Status:--<%=@feature.status%></h4>
+ 
+    <h4>Panel:- <%= @feature.panels %><br></h4>
+    
+    <h4> Title:--  <%= @feature.title %><br></h4>
+   
+    <h4> Description:--</h4>
+    <%= @feature.description %><br>
+    <hr>
+    <h3>Task Information  </h3>
+    No of Tasks:- <%= @feature.jobs.count %><br>
+    No of Tasks Completed:-(<%=@feature.jobs.count%>/<%=@feature.jobs.count%>)
+    <%= render @feature.jobs %>
+    <br><%=link_to 'Edit',  edit_feature_path(), method: :get, :class => 'btn btn-primary'%><br>
+</section>
