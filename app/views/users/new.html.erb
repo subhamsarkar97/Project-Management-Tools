@@ -4,10 +4,16 @@
             <h1>Sign Up</h1>
             <%= form_for @user do |p| %>
                 <%= render 'shared/error_messages' %>
-                <%= p.label :username%><br>
-                <%= p.text_field :username%><br>
+                <%= p.label "Firstame"%><br>
+                <%= p.text_field :firstname, placeholder: "firstname ..."%><br>
+                <%= p.label "Lastname"%><br>
+                <%= p.text_field :lastname, placeholder: "lastname ..."%><br>
+                <%= p.label "Gender"%><br>
+                <%= p.select(:gender, User::GENDER_LIST) %><br>
+                <%= p.label "Email"%><br>
+                <%= p.text_field :username, placeholder: "Email ..."%><br>
                 <%= p.label :password%><br>
-                <%= p.password_field :password%><br><br>
+                <%= p.password_field :password, placeholder: "New password"%><br><br>
                 <%= p.submit %>
             <% end %>
         </div>

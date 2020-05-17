@@ -1,18 +1,4 @@
-<section class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <h1>Project Management Tool</h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <%= link_to "LOG OUT", welcome_path , method: :delete%>
-                </li>
-            </ul>
-        </div>
-    </nav> 
-</section>
+<%=render 'navbar'%>
 <section class="container">
     <h2>Searched Fiteaures</h2>
     <hr>

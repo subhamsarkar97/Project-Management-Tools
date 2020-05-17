@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get "create_project", to: 'users#createproject'
 
     resources :features
+    resources :finds
     
     
     get "", to: 'sessions#index'

@@ -68,15 +68,16 @@ body {
                 </li>
             </ul>
         </div>
-      </section>  
+    </section>  
+      
     </nav> 
 </section>
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a>Current Iteration</a>
-  <a>Backlog</a>
-  <a>Icebox</a>
+  <%= link_to "Current_itter", new_feature_path({panel: "Current_itteration",project_id: params[:id]}) , method: :get, :class=> "custom1"%>
+  <%= link_to "Backlog", new_feature_path({panel: "Backlog",project_id: params[:id]}) , method: :get, :class=> "custom1"%>
+  <%= link_to "Icebox", new_feature_path({panel: "Icebox",project_id: params[:id]}), method: :get, :class=> "custom1"%>
 </div>
 <script>
 function openNav() {
@@ -125,6 +126,7 @@ function btn3(){
         <%= text_field_tag :search, params[:search], placeholder: "feature title ..." %>
         <%= submit_tag "Search"%>
     <%end%><br>
+    <%=link_to "Advance Search" , new_find_path() , class: 'btn btn-primary' %>
 </section>
 
 </body>

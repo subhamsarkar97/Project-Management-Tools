@@ -1,0 +1,13 @@
+<%=render 'features/navbar'%>
+<div class="container">
+    <h2>Advance Search</h2>
+
+    <%= form_for @find, html: {class: "puro-form"} do |f| %>
+    
+        <%=f.label "Title" %><br>
+        <%=f.text_field :keyword, placeholder: "Title"%><br>
+        <%=f.label "Status" %><br>
+        <%=f.select :status, options_for_select(Find::STATUS_LIST)%><br><br>  
+        <%=f.submit "Search", class: 'btn btn-primary' %>
+    <%end%>    
+</div>
