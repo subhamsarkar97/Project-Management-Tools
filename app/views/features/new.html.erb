@@ -21,6 +21,18 @@
             <%= f.label :status %>
             <%= f.select(:status, Feature::INITIAL_LIST) %><br>
         </div>
+        <h4>Assign Member:--</h4>
+        
+        <div class="field">
+            <%= f.label "Members Name" %>
+            <%= collection_select( :feature, :user_id, User.all, :id, :firstname, {}, {multiple: false} ) %><br>
+        </div>
+        <div class="field">
+            <%= f.label "Members email" %>
+            <%= collection_select( :feature, :user_id, User.all, :id, :username, {}, {multiple: false} ) %><br>
+        </div><br>
+
+        <h5>Feature Information:--</h5>
         <div class="field">
             <%= f.label :title %><br>
             <%= f.text_field :title, placeholder: "Title..." %><br>
@@ -45,7 +57,7 @@
                 <%=f.fields_for :jobs do |f|  %>
                     <%= render 'job_fields', f: f%>
                 <%end%>
-                <%= link_to_add_fields "Add a task", f, :jobs %>
+                <%= link_to_add_fields "Add more task", f, :jobs %>
             </div>   
         </section>
 

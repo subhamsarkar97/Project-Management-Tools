@@ -1,5 +1,8 @@
 class FeaturesController < ApplicationController
-    before_action :authorized, only: [:create, :new, :show]
+    before_action :authorized, only: [:create, :new, :show, :edit, :update, :index]
+    def index
+      @feature = Feature.search(params[:search])
+    end  
     def new
       @feature = current_project.features.build
       @task = @feature.jobs.build
@@ -40,7 +43,7 @@ class FeaturesController < ApplicationController
     
     private 
     def feature_params
-      params.require(:feature).permit(:title, :description, :picture, :panels, :status , jobs_attributes: [ :id, :_destroy, :taskname, :description, :feature_id])
+      params.require(:feature).permit(:title, :description, :picture, :panels, :user_id,:status, jobs_attributes: [ :id, :_destroy, :taskname, :description, :feature_id])
     end 
 
 end

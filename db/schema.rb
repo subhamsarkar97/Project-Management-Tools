@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_114741) do
+ActiveRecord::Schema.define(version: 2020_05_17_161537) do
 
   create_table "features", force: :cascade do |t|
     t.string "title"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2020_05_17_114741) do
     t.integer "project_id"
     t.string "picture"
     t.string "status"
-    t.integer "user_id"
     t.string "panel"
     t.string "panels"
+    t.integer "user_id"
   end
 
   create_table "jobs", force: :cascade do |t|

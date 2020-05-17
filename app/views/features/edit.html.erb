@@ -19,7 +19,7 @@
     <%= form_for(@feature, html: { multipart: true }) do |f| %>
         <div class="field">
             <%= f.label :status %>
-            <%= f.select(:status, Feature::INITIAL_LIST) %><br>
+            <%= f.select(:status, Feature::STATUS_LIST) %><br>
         </div>
         <div class="field">
             <%= f.label :title %><br>
@@ -33,10 +33,7 @@
             <%= f.file_field :picture %>
         </span><br><br>
         <%=f.hidden_field :project_id, value: params[:project_id]%>
-        <div class="field">
-            <%= f.label "Panel" %><br>
-            <%= f.text_field :panels, value: params[:panel] %><br>
-        </div><br>
+        
 
         <hr>
         <h4>Add Task </h4>
