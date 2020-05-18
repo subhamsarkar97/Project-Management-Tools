@@ -9,15 +9,19 @@
         </div>
         <h4>Assign Member:--</h4>
         
+        
         <div class="field">
             <%= f.label "Members Name" %>
             <%= collection_select( :feature, :user_id, User.all, :id, :firstname, {}, {multiple: false} ) %><br>
         </div>
         <div class="field">
+            <%= f.label "Status of feature:-" %><br>
+            <%= f.text_field :type, value: params[:feature_work_status] %><br>
+        </div><br>
+        <div class="field">
             <%= f.label "Members email" %>
             <%= collection_select( :feature, :user_id, User.all, :id, :username, {}, {multiple: false} ) %><br>
         </div><br>
-
         <h5>Feature Information:--</h5>
         <div class="field">
             <%= f.label :title %><br>

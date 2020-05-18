@@ -3,8 +3,6 @@ class FindsController < ApplicationController
 
     def new
         @find = Find.new
-        
-        
     end
     
     def create

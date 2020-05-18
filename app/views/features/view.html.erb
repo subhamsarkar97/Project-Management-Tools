@@ -9,10 +9,17 @@
                 <li class="nav-item active">
                     <%= link_to "LOG OUT", welcome_path , method: :delete%>
                 </li>
-                <li class="nav-item active">
-                    <%= link_to "Projects", view_path , method: :get%>
-                </li>
             </ul>
         </div>
     </nav> 
+</section>
+<section class="container">
+    <h2>Searched Fiteaures</h2>
+    <hr>
+
+    <% @feature.each do |f| %>
+        <%= f.title %><br>
+        <%= f.description %><br>
+        <%= link_to "Read more",f, method: :get %><br><br>
+    <%end%>    
 </section>

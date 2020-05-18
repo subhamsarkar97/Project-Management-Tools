@@ -13,6 +13,8 @@ class Feature < ApplicationRecord
             all
         end
     end  
+    
+             
 
     
 end

@@ -102,20 +102,19 @@ function btn3(){
 <div class="row">
     <div class="col-md-4" id="col1">
         <h4>Current Iteration</h4>
-        <%= link_to "+ Add Feature", new_feature_path({panel: "Current_itteration",project_id: params[:id]}) , method: :get, :class=> "custom1"%><br>
+        <%= link_to "+ Add Feature", new_feature_path({panel: "Current_itteration",project_id: params[:id],feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%><br>
         <button onclick="btn1()"class="btn"><i class="fa fa-close"></i></button>
     </div>
     <div class="col-md-4" id="col2">
         <h4>Backlog</h4>
-        <%= link_to "+ Add Feature", new_feature_path({panel: "Backlog",project_id: params[:id]}), method: :get, :class=> "custom1"%><br>
+        <%= link_to "+ Add Feature", new_feature_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"}), method: :get, :class=> "custom1"%><br>
         <button onclick="btn2()" class="btn"><i class="fa fa-close"></i></button>
     </div>
     <div class="col-md-4" id="col3">
         <h4>Icebox</h4>
-        <%= link_to "+ Add Feature", new_feature_path({panel: "Icebox",project_id: params[:id]}), method: :get, :class=> "custom1"%><br>
+        <%= link_to "+ Add Feature", new_feature_path({panel: "Icebox",project_id: params[:id],feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%><br>
         <button onclick="btn3()" class="btn"><i class="fa fa-close"></i></button>
     </div>
-
 </div>
 </section>
 <hr>
