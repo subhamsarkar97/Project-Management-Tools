@@ -1,4 +1,3 @@
 class Project < ApplicationRecord
     belongs_to :user
-    has_many :features, dependent: :destroy
 end

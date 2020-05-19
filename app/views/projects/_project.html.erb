@@ -1,6 +1,6 @@
 <li id="project-<%= project.id %>">
     
-    <span class="user"><%= link_to project.user.username, project.user %></span><br>
+    <span class="user"><%= link_to project.user.firstname, project.user %></span><br>
     <span class="content"><%= project.projectname %></span><br>
     <span class="Dashboard"><%= link_to "Dashboard", [project.user,project] ,method: :get, :class => "btn btn-primary"%></span><br>
     <span class="timestamp">

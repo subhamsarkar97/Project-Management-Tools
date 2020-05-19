@@ -2,14 +2,15 @@ class FeaturesController < ApplicationController
     before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :view]
     def index
       @feature = Feature.search(params[:search])
+      
     end  
     def new
-      @feature = current_project.features.build
+      @feature = Feature.new
       @task = @feature.jobs.build
     end
     
     def create
-      @feature = current_project.features.build(feature_params)
+      @feature = Feature.new(feature_params)
       if @feature.save
           redirect_to @feature
       else
@@ -19,12 +20,10 @@ class FeaturesController < ApplicationController
 
     def edit
       @feature = Feature.find(params[:id])
-      @project = Project.find(@feature.project_id) 
     end
 
     def update
-        @feature = Feature.find(params[:id])
-        @project = Project.find(@feature.project_id)
+      @feature = Feature.find(params[:id])
         if @feature.update(feature_params)
             redirect_to @feature
         else
@@ -38,7 +37,6 @@ class FeaturesController < ApplicationController
     
     def show
       @feature = Feature.find(params[:id])
-      @project = Project.find(@feature.project_id)
     end
     
     private 

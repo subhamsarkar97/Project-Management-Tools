@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :features
     get "/view", to: 'features#view', as: 'view'
     resources :finds
+    post "task", to:'features#create', as: 'add_task'
     
     
     get "", to: 'sessions#index'
