@@ -14,14 +14,20 @@ class ProjectsController < ApplicationController
     end
 
     def show
+        @project_id = current_project.id
+        @user_id = current_user.id
         @user = User.find(params[:user_id])
         @project = @user.projects.find(params[:id])
         session[:project_id] = @project.id
     end   
+
+    def createfeature
+        @project_id = current_project.id
+        @user_id = current_user.id
+    end    
     
     def projects
         @user = User.find(params[:user_id])
-        
     end   
  
     private 

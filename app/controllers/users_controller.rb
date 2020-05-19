@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def createproject
     @user = current_user
+    @user_id = current_user.id
   end  
   
   def show

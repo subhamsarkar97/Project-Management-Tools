@@ -1,6 +1,7 @@
 <%=render 'navbar'%>
 <section class="container">
     <h3>About Feature</h3>
+    <h5>Identity Token :-- <%=@feature.identity_token %></h5>
     <hr>
     
     <h3>Feature Information  </h3><br>
@@ -9,7 +10,10 @@
  
     <h4>Panel:- <%= @feature.panels %><br></h4>
     
-    <h4> Title:--  <%= @feature.title %><br></h4>
+    <h4> Title:--  <%= @feature.title %><br></h4><br>
+    
+    
+
    
     <h4> Description:--</h4>
     <%= @feature.description %><br>

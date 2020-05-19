@@ -5,7 +5,9 @@
         <p>No record found</p>
     <% else %>
         <%= @find.search_features.each do |b|%>
+            
             <h3>About Feature</h3>
+            <h5>Identity Token :-- <%=b.identity_token %></h5>
             <hr>
     
             <h3>Feature Information  </h3><br>
@@ -14,7 +16,9 @@
  
             <h4>Panel:- <%= b.panels %><br></h4>
     
-            <h4> Title:--  <%= b.title %><br></h4>
+            <h4> Title:--  <%= b.title %><br></h4><br>
+            
+            
    
             <h4> Description:--</h4>
             <%= b.description %><br>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get "projects", to: 'projects#projects', as: 'projects_profile'
     end 
     get "create_project", to: 'users#createproject'
+    get "create_feature", to: 'projects#createfeature' 
 
     resources :features
     get "/view", to: 'features#view', as: 'view'

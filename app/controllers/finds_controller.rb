@@ -2,6 +2,7 @@ class FindsController < ApplicationController
     before_action :authorized, only: [:create, :new, :show]
 
     def new
+        @user_id = current_user.id
         @find = Find.new
     end
     
@@ -11,6 +12,7 @@ class FindsController < ApplicationController
     end
     
     def show
+        @user_id = current_user.id
         @find = Find.find(params[:id])
     end
     

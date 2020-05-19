@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_103113) do
+ActiveRecord::Schema.define(version: 2020_05_19_082452) do
 
   create_table "features", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_05_18_103113) do
     t.string "panels"
     t.integer "user_id"
     t.string "feature_work_status"
+    t.string "identity_token"
+    t.index ["identity_token"], name: "index_features_on_identity_token", unique: true
   end
 
   create_table "finds", force: :cascade do |t|
@@ -72,6 +74,10 @@ ActiveRecord::Schema.define(version: 2020_05_18_103113) do
     t.string "lastname"
     t.string "gender"
     t.string "remember_digest"
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
