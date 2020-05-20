@@ -3,7 +3,7 @@ class FeaturesController < ApplicationController
     def index
       @user_id = current_user.id
       @project_id = current_project.id
-      @feature = Feature.where(["identity_token LIKE ?",params[:search]]) 
+      @feature = Feature.where(["identity_token LIKE ?",params[:search]]).or(Feature.where(["title LIKE ?",params[:search]]))
     end  
     def new
       @user_id = current_user.id

@@ -13,6 +13,7 @@ class FindsController < ApplicationController
     
     def show
         @user_id = current_user.id
+        @user_name = current_user.firstname
         @find = Find.find(params[:id])
     end
     

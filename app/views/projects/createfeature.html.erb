@@ -128,10 +128,9 @@ function btn3(){
 <section class= "container">
     <h4>Search Feature</h4>
     <%=form_tag features_path, method: :get do %>
-        <%= text_field_tag :search, params[:search], placeholder: "feature title ..." %>
+        <%= text_field_tag :search, params[:search], placeholder: "feature identify token ..." %>
         <%= submit_tag "Search"%>
     <%end%><br>
-    <%=link_to "Advance Search" , new_find_path() , class: 'btn btn-primary' %>
 </section>
 
 </body>
