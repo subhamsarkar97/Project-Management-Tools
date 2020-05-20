@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    resources :users, only: [:new, :create, :show] do
+    resources :users do
       resources :projects, only: [:new, :show, :create] 
       get "projects", to: 'projects#projects', as: 'projects_profile'
     end 
