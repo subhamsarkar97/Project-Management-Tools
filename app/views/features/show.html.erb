@@ -23,4 +23,18 @@
     No of Tasks Completed:-(<%=@feature.jobs.count%>/<%=@feature.jobs.count%>)
     <%= render @feature.jobs %>  
     <br><%=link_to 'Edit',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br>
+    <hr>
+    <h4>Comments</h4>
+    <section class="section comments">
+        <div>
+            Comments(<%= @feature.comments.count%>)
+            <%= render @feature.comments %>
+        </div>
+        <h4>Add Comments</h4>
+        <div class="comment-form">
+            <hr  />
+            <h3 class="subtitle is-3">Leave a reply</h3>
+            <%= render 'comments/form' %>
+        <div>    
+    </section>
 </section>

@@ -40,6 +40,7 @@ class FeaturesController < ApplicationController
     
     def show
       @user_id = current_user.id
+      @user_name = current_user.firstname
       @feature = Feature.find(params[:id])
     end
     
