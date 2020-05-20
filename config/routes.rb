@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     get "create_project", to: 'users#createproject'
     get "create_feature", to: 'projects#createfeature' 
 
-    resources :features
+    resources :features do
+      resources :comments
+    end  
     get "/view", to: 'features#view', as: 'view'
     resources :finds
     post "task", to:'features#create', as: 'add_task'
