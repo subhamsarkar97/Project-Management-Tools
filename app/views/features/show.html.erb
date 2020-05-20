@@ -4,13 +4,13 @@
     <h5>Identity Token :-- <%=@feature.identity_token %></h5>
     <hr>
     
-    <h3>Feature Information  </h3><br>
+    <h3>Feature Information :-- </h3><br>
 
     <h4>Status:--<%=@feature.status%></h4>
  
     <h4>Panel:- <%= @feature.panels %><br></h4>
     
-    <h4> Title:--  <%= @feature.title %><br></h4><br>
+    <h4> Title:--  <%= @feature.title %><br></h4>
     
     
 
@@ -20,19 +20,21 @@
     <hr>
     <h3>Task Information  </h3>
     No of Tasks:- <%= @feature.jobs.count %><br>
-    No of Tasks Completed:-(<%=@feature.jobs.count%>/<%=@feature.jobs.count%>)
+    No of Tasks Completed:-(<%=@feature.jobs.count%>/<%=@feature.jobs.count%>)<br>
     <%= render @feature.jobs %>  
-    <br><%=link_to 'Edit',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br>
+    <br><%=link_to 'Edit',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br><br>
+    <h4>Comment Box</h4>
     <hr>
-    <h4>Comments</h4>
-    <section class="section comments">
+    <section class="Chat box">
         <div>
             Comments(<%= @feature.comments.count%>)
             <%= render @feature.comments %>
         </div>
-        <h4>Add Comments</h4>
+    </section> 
+    <hr>    
+    <section class="Comments">
+        <h4>Chat Box</h4>
         <div class="comment-form">
-            <hr  />
             <h3 class="subtitle is-3">Leave a reply</h3>
             <%= render 'comments/form' %>
         <div>    
