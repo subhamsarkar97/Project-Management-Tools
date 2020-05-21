@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'carrierwave', '~> 2.1'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'fog-aws', '~> 3.6', '>= 3.6.3'
+gem 'mail', '~> 2.7', '>= 2.7.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
