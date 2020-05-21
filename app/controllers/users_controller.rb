@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(post_params)
     if @user.save
+        UserMailer.with(user: @user).welcome_email.deliver
         flash[:success] = "Welcome to the Sample App!"
         session[:user_id] = @user.id
         redirect_to user_path(@user)

@@ -10,8 +10,6 @@
                 <%= p.text_field :lastname, placeholder: "lastname ..."%><br>
                 <%= p.label "Gender"%><br>
                 <%= p.select(:gender, User::GENDER_LIST) %><br>
-                <%= p.label "Email"%><br>
-                <%= p.text_field :username, placeholder: "Email ..."%><br>
                 <%= p.label :password%><br>
                 <%= p.password_field :password, placeholder: "New password"%><br><br>
                 <%= p.submit %>

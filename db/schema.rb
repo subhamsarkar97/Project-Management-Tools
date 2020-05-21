@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_061645) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "feature_id"
   end
-  
+
   create_table "features", force: :cascade do |t|
     t.string "title"
     t.text "description"
