@@ -19,8 +19,8 @@
 <section class="container">
     <h4>Create New Project</h4>
     <%= form_for ([@user, @user.projects.build]) do |project| %>
-        <%= project.label :projectname %>
-        <%= project.text_field :projectname %><br><br>
+        <%= project.label "Project Title" %>
+        <%= project.text_field :projectname, placeholder: "project title..." ,class: "form-control" %><br>
         <%= project.button :submit, :class => "btn btn-primary"%>
     <%end%>    
 </section>

@@ -15,5 +15,8 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+//= require jquery
+//= require jquery_ujs
 require('./nested-forms/addFields')
 require('./nested-forms/removeFields')
+require('./nested-forms/jquery.js')
