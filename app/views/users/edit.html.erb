@@ -5,14 +5,14 @@
             <%= form_for @user do |p| %>
                 <%= render 'shared/error_messages' %>
                 <%= p.label "Firstame"%><br>
-                <%= p.text_field :firstname, placeholder: "firstname ..."%><br>
+                <%= p.text_field :firstname, placeholder: "firstname ...", class: "form-control"%><br>
                 <%= p.label "Lastname"%><br>
-                <%= p.text_field :lastname, placeholder: "lastname ..."%><br>
+                <%= p.text_field :lastname, placeholder: "lastname ...", class: "form-control"%><br>
                 <%= p.label "Gender"%><br>
                 <%= p.select(:gender, User::GENDER_LIST) %><br>
                 <%= p.label :password%><br>
-                <%= p.password_field :password, placeholder: "New password"%><br><br>
-                <%= p.submit %>
+                <%= p.password_field :password, placeholder: "New password", class: "form-control"%><br><br>
+                <%= p.submit "Edit User", class: "btn btn-primary" %>
             <% end %>
         </div>
     </div>        
