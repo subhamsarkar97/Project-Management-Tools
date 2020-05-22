@@ -46,7 +46,7 @@ class FeaturesController < ApplicationController
     
     private 
     def feature_params
-      params.require(:feature).permit(:title, :description, :picture, :project_id ,:panels, :feature_work_status, :user_id, :status, :identity_token, jobs_attributes: [ :id, :_destroy, :taskname, :description, :feature_id])
+      params.require(:feature).permit(:mailId ,:title, :description, :picture, :project_id ,:panels, :feature_work_status, :user_id, :status, :identity_token, jobs_attributes: [ :id, :_destroy, :taskname, :description, :feature_id])
     end 
 
 end

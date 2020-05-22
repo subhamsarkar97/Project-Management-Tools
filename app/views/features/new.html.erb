@@ -20,7 +20,7 @@
         </div><br>
         <div class="field">
             <%= f.label "Members email" %>
-            <%= collection_select( :feature, :user_id, User.all, :id, :username, {}, {multiple: false} ) %><br>
+            <%= f.select(:mailId, Feature::EMAIL_LIST) %><br>
         </div><br>
         <h5>Feature Information:--</h5>
         <div class="field">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_061645) do
+ActiveRecord::Schema.define(version: 2020_05_21_203424) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2020_05_20_061645) do
     t.integer "user_id"
     t.string "feature_work_status"
     t.string "identity_token"
+    t.string "mailId"
+    t.string "username"
     t.index ["identity_token"], name: "index_features_on_identity_token", unique: true
   end
 
