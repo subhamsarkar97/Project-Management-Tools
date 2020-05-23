@@ -22,8 +22,8 @@
     <h3>Task Information  </h3>
     No of Tasks:- <%= @feature.jobs.count %><br>
     No of Tasks Completed:-(<%=@feature.jobs.count%>/<%=@feature.jobs.count%>)<br>
-    <%= render @feature.jobs %>  
-    <br><%=link_to 'Edit',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br><br>
+    <%= render @feature.jobs %>     
+    <br><%=link_to 'Add more task or edit feature',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br><br>
     <h4>Comment Box</h4>
     <hr>
     <section class="Chat box">

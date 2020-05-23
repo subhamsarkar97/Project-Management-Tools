@@ -2,9 +2,13 @@
 <%= form_for ([@feature, @feature.comments.build]) do |f| %>
         <div class="field">
             <div class="control">
-                <%= f.text_area :comment, input_html: { class: 'textarea' }, wrapper:false, label_html: { class: 'label' }, placeholder: "Comment ...." %>
+                <%= f.text_area :comment, input_html: { class: 'textarea' }, wrapper:false, label_html: { class: 'label' }, placeholder: "Comment ....", class: "form-control"  %>
             </div>
         </div><br>
         <%= f.button :submit, class: "but btn-primary" %>
 <% end %>   
 </section>
+
+
+
+

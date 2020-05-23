@@ -1,5 +1,5 @@
 class FeaturesController < ApplicationController
-    before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :view]
+    before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :view, :save]
     def index
       @user_id = current_user.id
       @project_id = current_project.id
@@ -43,6 +43,14 @@ class FeaturesController < ApplicationController
       @user_name = current_user.firstname
       @feature = Feature.find(params[:id])
     end
+
+    def save
+      @user_id = current_user.id
+      @user_name = current_user.firstname
+      @feature = Feature.find(params[:id])
+      redirect_to @feature
+    end  
+
     
     private 
     def feature_params

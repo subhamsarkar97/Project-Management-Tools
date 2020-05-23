@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get "/view", to: 'features#view', as: 'view'
     resources :finds
     post "task", to:'features#create', as: 'add_task'
+    put "save", to: 'features#save'
     
     
     get "", to: 'sessions#index'

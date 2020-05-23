@@ -81,9 +81,9 @@ body {
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <%= link_to "Current_itter", new_feature_path({panel: "Current_itteration",project_id: params[:id]}) , method: :get, :class=> "custom1"%>
-  <%= link_to "Backlog", new_feature_path({panel: "Backlog",project_id: params[:id]}) , method: :get, :class=> "custom1"%>
-  <%= link_to "Icebox", new_feature_path({panel: "Icebox",project_id: params[:id]}), method: :get, :class=> "custom1"%>
+  <%= link_to "Current_itter", new_feature_path({panel: "Current itteration",project_id: params[:id],feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%>
+  <%= link_to "Backlog", new_feature_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"}), method: :get, :class=> "custom1"%>
+  <%= link_to "Icebox", new_feature_path({panel: "Icebox",project_id: params[:id],feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%>
 </div>
 <script>
 function openNav() {
