@@ -1,13 +1,14 @@
 <br>
 <section class="edit">
-    <%= check_box_tag "feature[jobs_ids][]",job.id %>
-    <%=job.taskname %><br>
-    <%=job.description%><br>
-    <%=link_to "Save", @feature , class: 'btn btn-primary custom' %>
+    <%= form_tag save_path do %> 
+        <%= check_box_tag :done, 1 , params[:done]%>
+        <%=label_tag job.taskname %><br>
+        <%=label_tag job.description%><br>
+        <%=submit_tag "Save", class: "btn btn-primary check_all" %> 
+    <%end%>     
 </section>  
-
-    
 <hr>
+
 
 
 

@@ -3,6 +3,9 @@
     <h3>About Feature</h3>
     <h5>Identity Token :-- <%=@feature.identity_token %></h5>
     <hr>
+    <h3>Assigned Member</h3>
+    <h4> Email:--  <%= @feature.mailId %><br></h4>
+    <hr>
     
     <h3>Feature Information :-- </h3><br>
 
@@ -10,14 +13,9 @@
  
     <h4>Panel:- <%= @feature.panels %><br></h4>
     
-    <h4> Title:--  <%= @feature.title %><br></h4>
-    <h4> Title:--  <%= @feature.mailId %><br></h4>
-    
-    
-
-   
-    <h4> Description:--</h4>
-    <%= @feature.description %><br>
+    <h4> Feature Title:--  <%= @feature.title %><br></h4>
+    <h4>  Feature Description:--</h4>
+    <%= @feature.description %>
     <hr>
     <h3>Task Information  </h3>
     No of Tasks:- <%= @feature.jobs.count %><br>

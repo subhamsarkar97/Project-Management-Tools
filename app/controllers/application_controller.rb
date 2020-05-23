@@ -30,7 +30,11 @@ class ApplicationController < ActionController::Base
     
     def  current_project
         @current_project ||= Project.find_by(id: session[:project_id])
-    end    
+    end
+    
+    def  current_feature
+        @current_feature ||= Feature.find_by(id: session[:feature_id])
+    end  
     
     def logged_in?
         !current_user.nil?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_203424) do
+ActiveRecord::Schema.define(version: 2020_05_23_151418) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_203424) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "feature_id"
+    t.boolean "done"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -86,6 +87,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_203424) do
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

@@ -1,37 +1,37 @@
 class FeaturesController < ApplicationController
-    before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :view, :save]
+    before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :view, :savetask]
     def index
-      @user_id = current_user.id
-      @project_id = current_project.id
-      @feature = Feature.where(["identity_token LIKE ?",params[:search]]).or(Feature.where(["title LIKE ?",params[:search]]))
+        @user_id = current_user.id
+        @project_id = current_project.id
+        @feature = Feature.where(["identity_token LIKE ?",params[:search]]).or(Feature.where(["title LIKE ?",params[:search]]))
     end  
     def new
-      @user_id = current_user.id
-      @feature = Feature.new
-      @task = @feature.jobs.build
+        @user_id = current_user.id
+        @feature = Feature.new
+        @task = @feature.jobs.build
     end
     
     def create
-      @feature = Feature.new(feature_params)
-      if @feature.save
-          redirect_to @feature
-      else
-          redirect_to new_feature_path
-      end    
+        @feature = Feature.new(feature_params)
+        if @feature.save
+            redirect_to @feature
+        else
+            redirect_to new_feature_path
+        end    
     end
 
     def edit
-      @user_id = current_user.id
-      @feature = Feature.find(params[:id])
+        @user_id = current_user.id
+        @feature = Feature.find(params[:id])
     end
 
     def update
-      @feature = Feature.find(params[:id])
+        @feature = Feature.find(params[:id])
         if @feature.update(feature_params)
             redirect_to @feature
         else
             render 'edit'
-        end           
+        send           
     end
 
 
@@ -39,22 +39,24 @@ class FeaturesController < ApplicationController
     end  
     
     def show
-      @user_id = current_user.id
-      @user_name = current_user.firstname
-      @feature = Feature.find(params[:id])
+        @user_id = current_user.id
+        @user_name = current_user.firstname
+        @feature = Feature.find(params[:id])
+        session[:feature_id] = @feature.id
     end
 
-    def save
-      @user_id = current_user.id
-      @user_name = current_user.firstname
-      @feature = Feature.find(params[:id])
-      redirect_to @feature
-    end  
+    def savetask
+        @feature = current_feature
+        @job = Job.find_by(feature_id: @feature.id)
+        params[:done] == '1' ? checked() : unchecked()
+        if @job.save
+            redirect_to @feature
+        end
+    end    
 
     
     private 
     def feature_params
-      params.require(:feature).permit(:mailId ,:title, :description, :picture, :project_id ,:panels, :feature_work_status, :user_id, :status, :identity_token, jobs_attributes: [ :id, :_destroy, :taskname, :description, :feature_id])
+        params.require(:feature).permit(:mailId ,:title, :description, :picture, :project_id ,:panels, :feature_work_status, :user_id, :status, :identity_token, jobs_attributes: [ :id, :_destroy, :taskname, :description, :feature_id, :done])
     end 
-
 end
