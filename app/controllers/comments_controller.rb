@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
     before_action :authorized, only: [:create]
 
     def create
-        @user = current_user
+        @user_name = current_user.firstname
         @feature = Feature.find(params[:feature_id])
         @comment = @feature.comments.create(comments_params)
         respond_to do |format|
