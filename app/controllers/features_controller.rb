@@ -1,3 +1,4 @@
+$global_variable = 0
 class FeaturesController < ApplicationController
     before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :view, :savetask]
     def index
@@ -14,9 +15,15 @@ class FeaturesController < ApplicationController
     def create
         @feature = Feature.new(feature_params)
         if @feature.save
-            redirect_to @feature
+            redirect_to @feature, success: "Feature is created"
         else
-            redirect_to new_feature_path
+            if params[:panels] == "Current itteration"
+                redirect_to new_feature_path({panel: "Current itteration",project_id: params[:id],feature_work_status: "Finalised"})
+            elsif params[:panels] == "Backlog"
+                redirect_to new_feature_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"})
+            else
+                new_feature_path({panel: "Icebox",project_id: params[:id], feature_work_status: "Done"})         
+            end
         end    
     end
 
@@ -28,10 +35,10 @@ class FeaturesController < ApplicationController
     def update
         @feature = Feature.find(params[:id])
         if @feature.update(feature_params)
-            redirect_to @feature
+            redirect_to @feature, success: "Feature is Updated"
         else
-            render 'edit'
-        send           
+            render 'edit', danger: "Fields can not be empty !!"
+        end           
     end
 
 
@@ -46,12 +53,17 @@ class FeaturesController < ApplicationController
     end
 
     def savetask
+        b = $global_variable
+        @variables = increment(b); 
+        $global_variable = @variables
         @feature = current_feature
         @job = Job.find_by(feature_id: @feature.id)
-        params[:done] == '1' ? checked() : unchecked()
+        @feature.jobs.done = @variables
+        #params[:done] == '1' ? checked() : unchecked()
         if @job.save
             redirect_to @feature
         end
+        
     end    
 
     

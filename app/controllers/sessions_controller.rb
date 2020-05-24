@@ -11,10 +11,9 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password])       
             session[:user_id] = user.id
             params[:remember_me] == '1' ? remember(user) : forget(user)
-            redirect_to user  
-        else  
-            flash[:alert] = "Invalid username/password combination"    
-            redirect_to login_path
+            redirect_to user, success: "Welcome to the project management app !!!"  
+        else     
+            redirect_to login_path, danger: "Invalid Username or Password"
         end  
     end
     
@@ -31,6 +30,6 @@ class SessionsController < ApplicationController
         forget(current_user)
         session.delete(:user_id)
         @current_user = nil
-        redirect_to welcome_path
+        redirect_to welcome_path, success: "You are Successfully logged out !!"
     end  
 end

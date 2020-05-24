@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
-    
     before_action :authorized
     helper_method :current_user
     helper_method :logged_in?
 
+    add_flash_types :danger, :info, :warning, :success
+    
     def current_user
         if (user_id = session[:user_id])
             @current_user ||= User.find_by(id: user_id)
@@ -42,6 +43,11 @@ class ApplicationController < ActionController::Base
     
     def authorized   
         redirect_to welcome_path unless logged_in?
+    end
+    
+    def increment(a)
+        a=a+1;
     end    
+    
 
 end

@@ -7,9 +7,9 @@ class ProjectsController < ApplicationController
 
         if @project.save
             session[:project_id] = @project.id
-            redirect_to user_projects_profile_path
+            redirect_to user_projects_profile_path, success: "Projects is created"
         else
-            redirect_to new_user_project_path
+            redirect_to create_project_path, danger: "Fields can not be empty !!"
         end        
     end
 
