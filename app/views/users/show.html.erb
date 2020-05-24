@@ -26,5 +26,17 @@
         <%= link_to " Create Project", create_project_path ,method: :get, :class => "btn btn-primary button fa fa-plus-circle rend"%>
     </section>
 </div>
+<h2 class="text-center text">Search for the feature</h2>
+<section class= "container">
+    <h4>Search Feature</h4>
+    <%=form_tag features_path, method: :get do %>
+        <%= text_field_tag  :search, params[:search], placeholder: "identity token or title ...", presence: true %>
+        <%= submit_tag "Search"%>
+    <%end%><br>
+</section>
+
+
+
+
 
       
