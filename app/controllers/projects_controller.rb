@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
             session[:project_id] = @project.id
             redirect_to user_projects_profile_path, success: "Projects is created"
         else
-            redirect_to create_project_path, danger: "Fields can not be empty !!"
+            redirect_to create_project_path, danger: "Please fill the field properly !!"
         end        
     end
 
@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
         if @project.update(post_params)
             redirect_to user_projects_profile_path, success: "Projects is updated"     
         else
-            render 'edit', danger: "Fields can not be empty !!"
+            render 'edit', danger: "Please fill the fields properly !!"
         end        
     end    
  
@@ -51,8 +51,4 @@ class ProjectsController < ApplicationController
         params.require(:project).permit(:projectname)
     end   
     
-
-    
-    def destroy
-    end         
 end

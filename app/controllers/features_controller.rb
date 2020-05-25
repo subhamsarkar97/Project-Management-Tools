@@ -17,13 +17,8 @@ class FeaturesController < ApplicationController
         if @feature.save
             redirect_to @feature, success: "Feature is created"
         else
-            if params[:panels] == "Current itteration"
-                redirect_to new_feature_path({panel: "Current itteration",project_id: params[:id],feature_work_status: "Finalised"})
-            elsif params[:panels] == "Backlog"
-                redirect_to new_feature_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"})
-            else
-                new_feature_path({panel: "Icebox",project_id: params[:id], feature_work_status: "Done"})         
-            end
+            flash[:danger] = "Feature title should not be same and fields can not stay empty !!"
+            redirect_to new_feature_path
         end    
     end
 

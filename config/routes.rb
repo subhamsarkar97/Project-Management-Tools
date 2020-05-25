@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     resources :users do
-      resources :projects, only: [:new, :show, :create, :edit, :update] 
+      resources :projects, except: [:index] 
       get "projects", to: 'projects#projects', as: 'projects_profile'
     end 
     get "create_project", to: 'users#createproject'
