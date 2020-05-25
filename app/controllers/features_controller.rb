@@ -33,6 +33,7 @@ class FeaturesController < ApplicationController
     end
 
     def update
+        @user_id = current_user.id
         @feature = Feature.find(params[:id])
         if @feature.update(feature_params)
             redirect_to @feature, success: "Feature is Updated"
