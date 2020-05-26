@@ -4,8 +4,7 @@
     <hr>
 
     <% @feature.each do |f| %>
-        <%= f.title %><br>
-        <%= f.description %><br>
-        <%= link_to "Read more",f, method: :get %><br><br>
+        Title:- <%= f.title %><br>
+        <%= link_to "See more",f, method: :get %><br><br>
     <%end%>    
 </section>

@@ -15,6 +15,7 @@ class FeaturesController < ApplicationController
     def create
         @feature = Feature.new(feature_params)
         if @feature.save
+            FeatureMailer.with(feature: @feature).assign_feature.deliver
             redirect_to @feature, success: "Feature is created"
         else
             flash[:danger] = "Feature title should not be same and fields can not stay empty !!"
@@ -31,6 +32,7 @@ class FeaturesController < ApplicationController
         @user_id = current_user.id
         @feature = Feature.find(params[:id])
         if @feature.update(feature_params)
+            FeatureMailer.with(feature: @features).update_feature.deliver
             redirect_to @feature, success: "Feature is Updated"
         else
             render 'edit', danger: "Fields can not be empty !!"
@@ -49,17 +51,6 @@ class FeaturesController < ApplicationController
     end
 
     def savetask
-        b = $global_variable
-        @variables = increment(b); 
-        $global_variable = @variables
-        @feature = current_feature
-        @job = Job.find_by(feature_id: @feature.id)
-        @feature.jobs.done = @variables
-        #params[:done] == '1' ? checked() : unchecked()
-        if @job.save
-            redirect_to @feature
-        end
-        
     end    
 
     
