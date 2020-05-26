@@ -1,0 +1,13 @@
+<section class="container">
+    <h1>Forgot password</h1>
+    <h4>Put your Email here:--<h4>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+                <%= f.label "Email" %>
+                <%= f.email_field :username, class: 'form-control', placeholder: "email....." %><br>
+                <%= f.submit "Submit", class: "btn btn-primary" %>
+            <% end %>
+        </div>
+    </div>
+</section>
