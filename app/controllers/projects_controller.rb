@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
     before_action :authorized, only: [:create, :new, :show, :edit, :update]
+    before_action :get_user
        
     def create
         @user = User.find(params[:user_id])
