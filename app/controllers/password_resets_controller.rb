@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
     skip_before_action :authorized, only: [:new, :create, :edit, :update]
-    
+
     def new
     end
 
@@ -16,9 +16,24 @@ class PasswordResetsController < ApplicationController
     end  
 
     def edit
+        @user = User.find_by(username: params[:username])
     end
     
     def update
+        @user = User.find_by(username: params[:username])
+        if @user.reset_sent_at < 2.hours.ago
+            redirect_to new_password_reset_path, danger: "Password reset token is expired"
+        elsif @user.update_attributes(user_params)
+            redirect_to welcome_path, success: "Password has been reset"
+        else
+            render :edit
+        end            
     end  
+
+    private
+    def user_params
+        params.require(:user).permit(:password, :password_confirmation)
+    end
+
 
 end
