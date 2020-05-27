@@ -1,5 +1,5 @@
 <section class="container">
-    <%= form_for ([@feature, @feature.comments.build]) do |f| %>
+    <%= form_for ([@feature, @feature.comments.build]), remote: true do |f| %>
         <div class="field">
             <div class="control">
                 <%= f.hidden_field :name, value: current_user.firstname  %>
