@@ -45,8 +45,7 @@ class User < ApplicationRecord
     def send_password_reset_email
         UserMailer.password_reset(self).deliver
     end
-
-
+  
     private
         def downcase_email
             self.username = username.downcase

@@ -11,7 +11,6 @@
                 <%= check_box_tag :remember_me, 1, params[:remember_me] %>
                 <%= label_tag "Remember me"%><br>
                 <%= submit_tag "Login"%><br>
-                <%= link_to "Sign in with Outlook account", microsoft_v2_auth_omniauth_authorize_path %><br>
             <% end %>
             <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
         </div>

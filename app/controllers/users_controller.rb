@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:new, :create]
+    skip_before_action :authorized, only: [:new, :create, :callback]
   
   
     def new
@@ -16,6 +16,15 @@ class UsersController < ApplicationController
             redirect_to new_user_path, danger: "Please fill all the fields correctly"
         end 
     end
+
+    def callback
+        # Access the authentication hash for omniauth
+        data = request.env['omniauth.auth']
+
+        render json: data.to_json
+
+    end
+      
 
     def createproject
         @user = current_user
@@ -43,4 +52,10 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:username, :password, :firstname, :lastname, :gender, :reset_digest, :reset_sent_at)
     end  
+
+    def signout
+        reset_session
+        redirect_to root_url
+    end
+      
 end

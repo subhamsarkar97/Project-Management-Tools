@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
             redirect_to login_path, danger: "Invalid Username or Password"
         end  
     end
-    
     def login
     end
 

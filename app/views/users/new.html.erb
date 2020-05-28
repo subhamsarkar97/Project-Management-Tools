@@ -16,6 +16,7 @@
                 <%= p.password_field :password, placeholder: "New password", class: "form-control"%><br>
                 <%= p.submit "Create User", class: "btn btn-primary" %>
             <% end %>
+            <%= link_to "Sign in with Outlook account", "/auth/microsoft_graph_auth", method: :post %><br>
         </div>
     </div>        
 </section>
