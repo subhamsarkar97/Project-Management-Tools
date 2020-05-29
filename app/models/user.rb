@@ -3,6 +3,8 @@ class User < ApplicationRecord
     has_secure_password
     before_save   :downcase_email
     has_many :projects, dependent: :destroy
+    has_many :features, dependent: :destroy
+    has_many :comments, dependent: :destroy
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :username, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },

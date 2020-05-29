@@ -4,7 +4,12 @@ class UserMailer < ApplicationMailer
         @user = params[:user]
         @url  = 'http://localhost:3000/login'
         mail(to: @user.username, subject: 'Welcome to Project Management Tool App.')
-    end    
+    end  
+    
+    def delete_profile
+        @user = params[:user]
+        mail(to: @user.username, subject: "Your profile is successfully deleted")
+    end  
      
     def password_reset(user)
         @user = user

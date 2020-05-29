@@ -1,5 +1,4 @@
 class Feature < ApplicationRecord
-    
     has_secure_token :identity_token
     belongs_to :user
     validates :title, presence: true, length: { maximum: 255 },uniqueness: { case_sensitive: false }
