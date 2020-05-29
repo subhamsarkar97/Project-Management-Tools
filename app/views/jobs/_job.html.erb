@@ -1,10 +1,16 @@
 <br>
 <section class="edit">
-    <%= form_tag save_path do %> 
-        <%= check_box_tag "feature[jobs_ids][]", job.id %>
-        <%=label_tag job.taskname %><br>
-        <%=label_tag job.description%><br>
-        <button onclick="document.getElementById('feature_jobs_ids_[]').checked').checked;", class="btn btn-primary">SAVE</button>
-        <%end%>     
+    <%= form_tag( save_path, method: "post", id: "sel") do  %> 
+            <%= check_box_tag "feature[jobs_ids][]", job.id %>
+            <%=label_tag job.taskname %><br>
+            <%=label_tag job.description%><br>
+            <button class="btn btn-primary">SAVE</button>  
+    <%end%>     
 </section>  
 <hr>
+<script rel="javascript" src="job.js">
+</script>
+
+
+
+

@@ -22,8 +22,3 @@ require('./nested-forms/removeFields')
 require('./nested-forms/jquery.js')
 require('./nested-forms/tasks.js')
 
-$(function(){
-    $('.edit input[type=checkbox]').click(function(){
-        alert('clicked');
-    });
-});

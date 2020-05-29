@@ -32,7 +32,7 @@ class FeaturesController < ApplicationController
         @user_id = current_user.id
         @feature = Feature.find(params[:id])
         if @feature.update(feature_params)
-            FeatureMailer.with(feature: @features).update_feature.deliver
+            FeatureMailer.with(feature: @feature).update_feature.deliver
             redirect_to @feature, success: "Feature is Updated"
         else
             render 'edit', danger: "Fields can not be empty !!"
