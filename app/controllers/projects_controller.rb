@@ -1,14 +1,24 @@
 class ProjectsController < ApplicationController
-    before_action :authorized, only: [:create, :new, :show, :edit, :update]
+    before_action :authorized, only: [:create, :new, :show, :edit, :update, :get_user, :get_project1, :get_project, :get_user_id, :createfeature]
     before_action :get_user, except: [:createfeature]
-    before_action :get_project, only: [:show]
+    before_action :get_project1, only: [:show]
+    before_action :get_project, only: [:edit, :update]
+    before_action :get_user_id, except: [:create, :project]
       
     def get_user
         @user = User.find(params[:user_id])
     end 
     
-    def get_project
+    def get_project1
         @project = @user.projects.find(params[:id])
+    end    
+
+    def get_project
+        @project = Project.find(params[:id])
+    end  
+    
+    def get_user_id
+        @user_id = current_user.id
     end    
     
     
@@ -23,26 +33,20 @@ class ProjectsController < ApplicationController
     end
 
     def show
-        @user_id = current_user.id
         session[:project_id] = @project.id
     end   
 
     def createfeature
         @project_id = current_project.id
-        @user_id = current_user.id
     end    
     
     def projects
     end   
 
     def edit
-        @user_id = current_user.id
-        @project = Project.find(params[:id])
     end    
     
     def update
-        @user_id = current_user.id
-        @project = Project.find(params[:id])
         if @project.update(post_params)
             redirect_to user_projects_profile_path, success: "Projects is updated"     
         else

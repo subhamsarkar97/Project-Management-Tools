@@ -1,13 +1,23 @@
 $global_variable = 0
 class FeaturesController < ApplicationController
     before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :view, :savetask]
-    def index
+    before_action :get_user_id, only: [:index, :new, :edit, :update, :show ]
+    before_action :get_feature, only: [:edit, :update, :show]
+    
+    
+    def get_user_id
         @user_id = current_user.id
+    end   
+    
+    def get_feature
+        @feature = Feature.find(params[:id])
+    end    
+    
+    def index
         @project_id = current_project.id
         @feature = Feature.where(["identity_token LIKE ?",params[:search]]).or(Feature.where(["title LIKE ?",params[:search]]))
     end  
     def new
-        @user_id = current_user.id
         @feature = Feature.new
         @task = @feature.jobs.build
     end
@@ -24,13 +34,9 @@ class FeaturesController < ApplicationController
     end
 
     def edit
-        @user_id = current_user.id
-        @feature = Feature.find(params[:id])
     end
 
     def update
-        @user_id = current_user.id
-        @feature = Feature.find(params[:id])
         if @feature.update(feature_params)
             FeatureMailer.with(feature: @feature).update_feature.deliver
             redirect_to @feature, success: "Feature is Updated"
@@ -44,9 +50,7 @@ class FeaturesController < ApplicationController
     end  
     
     def show
-        @user_id = current_user.id
         @user_name = current_user.firstname
-        @feature = Feature.find(params[:id])
         session[:feature_id] = @feature.id
     end
 
