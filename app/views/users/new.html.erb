@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h1>Sign Up</h1>
-            <%= form_for @user do |p| %>
+            <%= form_for(@user, html: { multipart: true }) do |p| %>
                 <%= render 'shared/error_messages' %>
                 <%= p.label "Firstame"%><br>
                 <%= p.text_field :firstname, placeholder: "firstname ...", class: "form-control"%><br>
@@ -10,6 +10,8 @@
                 <%= p.text_field :lastname, placeholder: "lastname ...", class: "form-control"%><br>
                 <%= p.label "Gender"%><br>
                 <%= p.select(:gender, User::GENDER_LIST) %><br>
+                <%= p.label "Profile picture" %><br>
+                <%= p.file_field :image %><br>
                 <%= p.label "Email"%><br>
                 <%= p.text_field :username, placeholder: "Email ...", class: "form-control"%><br>
                 <%= p.label :password%><br>

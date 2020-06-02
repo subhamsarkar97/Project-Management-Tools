@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_080922) do
+ActiveRecord::Schema.define(version: 2020_06_02_194121) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_080922) do
     t.string "password_reset_token"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "image"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

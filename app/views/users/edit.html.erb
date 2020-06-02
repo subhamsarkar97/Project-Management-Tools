@@ -10,6 +10,8 @@
                 <%= p.text_field :lastname, placeholder: "lastname ...", class: "form-control"%><br>
                 <%= p.label "Gender"%><br>
                 <%= p.select(:gender, User::GENDER_LIST) %><br>
+                <%= p.label "Profile picture" %><br>
+                <%= p.file_field :image %><br>
                 <%= p.label :password%><br>
                 <%= p.password_field :password, placeholder: "New password", class: "form-control"%><br><br>
                 <%= p.submit "Edit User", class: "btn btn-primary" %>

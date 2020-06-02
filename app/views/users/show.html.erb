@@ -22,6 +22,9 @@
         </div>
     </nav> 
 </section>
+<section class = "profile_picture">
+    <%= image_tag @user.image.url if @user.image? %>
+</section>    
 <div class="auth_section">
     <section class="container">    
         <h1 class="text-center">Welcome <%=@user.firstname%></h1>

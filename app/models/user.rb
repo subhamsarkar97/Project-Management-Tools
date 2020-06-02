@@ -4,6 +4,7 @@ class User < ApplicationRecord
     before_save   :downcase_email
     has_many :projects, dependent: :destroy
     has_many :comments, dependent: :destroy
+    mount_uploader :image, ImageUploader
     has_many :features, dependent: :destroy
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :username, presence: true, length: { maximum: 255 },
