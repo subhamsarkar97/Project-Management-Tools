@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_194121) do
+ActiveRecord::Schema.define(version: 2020_06_03_064104) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -28,12 +28,11 @@ ActiveRecord::Schema.define(version: 2020_06_02_194121) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "project_id"
     t.string "picture"
-    t.string "status"
-    t.string "panel"
     t.string "panels"
     t.integer "user_id"
     t.string "feature_work_status"
     t.string "identity_token"
+    t.string "status"
     t.string "mailId"
     t.string "username"
     t.index ["identity_token"], name: "index_features_on_identity_token", unique: true
@@ -62,13 +61,6 @@ ActiveRecord::Schema.define(version: 2020_06_02_194121) do
     t.integer "user_id"
   end
 
-  create_table "searches", force: :cascade do |t|
-    t.string "keywords"
-    t.string "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
@@ -78,31 +70,22 @@ ActiveRecord::Schema.define(version: 2020_06_02_194121) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.string "taskname"
-    t.text "taskdesc"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "feature_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "firstname"
-    t.string "lastname"
-    t.string "gender"
     t.string "remember_digest"
-    t.string "activation_digest"
-    t.boolean "activated", default: false
-    t.datetime "activated_at"
-    t.string "password_reset_token"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.string "image"
-    t.index ["username"], name: "index_users_on_username", unique: true
+    t.string "firstname"
+    t.string "lastname"
+    t.string "gender"
+    t.boolean "activated"
+    t.datetime "activated_at"
+    t.string "password_reset_token"
+    t.string "activation_digest"
   end
 
 end
