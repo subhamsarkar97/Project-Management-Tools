@@ -57,7 +57,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 1.2', '>= 1.2.3'
+  #gem 'pg', '~> 1.2', '>= 1.2.3'
   gem 'rails_12factor', '~> 0.0.3'
 end
 
