@@ -13,7 +13,6 @@ class Feature < ApplicationRecord
     EMAIL_LIST = []
 
     email_array = User.all.map { |user| user.username }
-
     email_array.each do |f|
         EMAIL_LIST.push(f)
     end    
