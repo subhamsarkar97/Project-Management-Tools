@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
     before_action :set_user
 
     add_flash_types :danger, :info, :warning, :success
-    
-    
+
     def save_in_params(auth_hash)
         session[:graph_token_hash] = auth_hash.dig(:credentials)
         session[:firstname] = auth_hash.dig(:extra, :raw_info, :displayName)
@@ -14,18 +13,18 @@ class ApplicationController < ActionController::Base
                                auth_hash.dig(:extra, :raw_info, :userPrincipalName)
     end
 
-
     def access_token
         session[:graph_token_hash][:token]
     end
+    
     def firstname
         session[:firstname]
     end
+    
     def username
         session[:username]
     end
     
-
     def set_user
         @user_name = firstname
         @user_email = username
@@ -58,7 +57,6 @@ class ApplicationController < ActionController::Base
         cookies.delete(:remember_token)
     end
     
-    
     def  current_project
         @current_project ||= Project.find_by(id: session[:project_id])
     end
@@ -75,9 +73,4 @@ class ApplicationController < ActionController::Base
         redirect_to welcome_path unless logged_in?
     end
     
-    def increment(a)
-        a=a+1;
-    end    
-    
-
 end

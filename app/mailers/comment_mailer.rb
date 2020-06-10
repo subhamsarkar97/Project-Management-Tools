@@ -7,7 +7,6 @@ class CommentMailer < ApplicationMailer
     def comment_mail(comment)
         @comment = comment
         @feature = @comment.feature
-        
         mail(to: @feature.mailId, subject: "Comment is added for #{@feature.title}")
     end
 end

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
+    
     attr_accessor :remember_token, :reset_token
+    include ActionText::Attachable
     has_secure_password
     before_save   :downcase_email
     has_many :projects, dependent: :destroy
@@ -50,9 +52,8 @@ class User < ApplicationRecord
     end
   
     private
-        def downcase_email
-            self.username = username.downcase
-        end
+    def downcase_email
+        self.username = username.downcase
+    end
 
-     
 end

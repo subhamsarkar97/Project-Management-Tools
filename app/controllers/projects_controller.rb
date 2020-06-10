@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
         @user_id = current_user.id
     end    
     
-    
     def create
         @project = @user.projects.build(post_params)
         if @project.save

@@ -16,10 +16,10 @@
         </div>
     </nav> 
 </section>
+
 <section class="container">
     <h2>Searched Features</h2>
     <hr>
-
     <% @feature.each do |f| %>
         Title:- <%= f.title %><br>
         <%= link_to "See more",f, method: :get %><br><br>

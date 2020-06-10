@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-
     def welcome_email
         @user = params[:user]
         @url  = 'http://localhost:3000/login'
@@ -15,5 +14,4 @@ class UserMailer < ApplicationMailer
         @user = user
         mail(to: @user.username, subject: "Password Reset")
     end    
-
 end

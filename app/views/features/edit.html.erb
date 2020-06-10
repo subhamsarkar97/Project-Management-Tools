@@ -19,8 +19,6 @@
             <%= f.file_field :picture %>
         </span><br><br>
         <%=f.hidden_field :project_id, value: params[:project_id]%>
-        
-
         <hr>
         <h4>Add Task </h4>
         <section id = "tasks">
@@ -31,8 +29,6 @@
                 <%= link_to_add_fields "Add a task", f, :jobs %>
             </div>   
         </section>
-
-
         <%= f.submit "Submit", class: "btn btn-primary" %>
       <% end %>   
 </section>

@@ -1,9 +1,7 @@
-$global_variable = 0
 class FeaturesController < ApplicationController
     before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :view, :savetask]
     before_action :get_user_id, only: [:index, :new, :edit, :update, :show ]
     before_action :get_feature, only: [:edit, :update, :show]
-    
     
     def get_user_id
         @user_id = current_user.id
@@ -14,9 +12,9 @@ class FeaturesController < ApplicationController
     end    
     
     def index
-        
         @feature = Feature.where(["identity_token LIKE ?",params[:search]]).or(Feature.where(["title LIKE ?",params[:search]]))
     end  
+    
     def new
         @feature = Feature.new
         @task = @feature.jobs.build
@@ -45,21 +43,17 @@ class FeaturesController < ApplicationController
         end           
     end
 
-
     def view
     end  
     
     def show
         @user_name = current_user.firstname
         session[:feature_id] = @feature.id
-    end
+    end   
 
-    def savetask
-    end    
-
-    
     private 
     def feature_params
         params.require(:feature).permit(:mailId ,:title, :description, :picture, :project_id ,:panels, :feature_work_status, :user_id, :status, :identity_token, jobs_attributes: [ :id, :_destroy, :taskname, :description, :feature_id, :done])
     end 
+
 end

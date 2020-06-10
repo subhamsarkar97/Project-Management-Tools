@@ -1,134 +1,135 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {
-  font-family: "Lato", sans-serif;
-}
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body {
+                font-family: "Lato", sans-serif;
+            }
 
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #111;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
 
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
 
-.sidenav a:hover {
-  color: #f1f1f1;
-}
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
 
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-</head>
-<body>
-
-<section>
-    <nav class="navbar navbar-expand-lg navbar-light">
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-    <section class="container">
-        <h1>Project Management Tool</h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <%= link_to "PROFILE", user_path(@user_id) , method: :get, class: "custom"%>
-                </li>
-                <li class="nav-item active">
-                    <%= link_to "CREATE PROJECT", create_project_path , method: :get, class: "custom"%>
-                </li>
-                <li class="nav-item active">
-                    <%= link_to "LOG OUT", welcome_path , method: :delete, class: "custom"%>
-                </li>
-            </ul>
+            @media screen and (max-height: 450px) {
+                .sidenav {padding-top: 15px;}
+                .sidenav a {font-size: 18px;}
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                <section class="container">
+                    <h1>Project Management Tool</h1>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> 
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <%= link_to "PROFILE", user_path(@user_id) , method: :get, class: "custom"%>
+                            </li>
+                            <li class="nav-item active">
+                                <%= link_to "CREATE PROJECT", create_project_path , method: :get, class: "custom"%>
+                            </li>
+                            <li class="nav-item active">
+                                <%= link_to "LOG OUT", welcome_path , method: :delete, class: "custom"%>
+                            </li>
+                        </ul>
+                    </div>
+                </section>  
+            </nav> 
+        </section>
+        
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <%= link_to "Current_itter", new_feature_path({panel: "Current itteration",project_id: params[:id],feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%>
+            <%= link_to "Backlog", new_feature_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"}), method: :get, :class=> "custom1"%>
+            d<%= link_to "Icebox", new_feature_path({panel: "Icebox",project_id: params[:id],feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%>
         </div>
-    </section>  
-      
-    </nav> 
-</section>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <%= link_to "Current_itter", new_feature_path({panel: "Current itteration",project_id: params[:id],feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%>
-  <%= link_to "Backlog", new_feature_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"}), method: :get, :class=> "custom1"%>
-  <%= link_to "Icebox", new_feature_path({panel: "Icebox",project_id: params[:id],feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%>
-</div>
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+            }
+            
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+            
+            function btn1(){
+                document.getElementById("col1").innerText="";
+            }
+            
+            function btn2(){
+                document.getElementById("col2").innerText="";
+            }
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-function btn1(){
-  document.getElementById("col1").innerText="";
-}
-function btn2(){
-  document.getElementById("col2").innerText="";
-}
-function btn3(){
-  document.getElementById("col3").innerText="";
-}
-</script>
-<section class="container">
-<h2>Project Dashboard</h2>
-<div class="row">
-    <div class="col-md-4" id="col1">
-        <h4>Current Iteration</h4>
-        <%= link_to "+ Add Feature", new_feature_path({panel: "Current itteration",project_id: @project_id,feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%><br>
-        <button onclick="btn1()"class="btn"><i class="fa fa-close"></i></button>
-    </div>
-    <div class="col-md-4" id="col2">
-        <h4>Backlog</h4>
-        <%= link_to "+ Add Feature", new_feature_path({panel: "Backlog",project_id: @project_id, feature_work_status: "Done"}), method: :get, :class=> "custom1"%><br>
-        <button onclick="btn2()" class="btn"><i class="fa fa-close"></i></button>
-    </div>
-    <div class="col-md-4" id="col3">
-        <h4>Icebox</h4>
-        <%= link_to "+ Add Feature", new_feature_path({panel: "Icebox",project_id: @project_id,feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%><br>
-        <button onclick="btn3()" class="btn"><i class="fa fa-close"></i></button>
-    </div>
-</div>
-</section>
-<hr>
+            function btn3(){
+                document.getElementById("col3").innerText="";
+            }
+        </script>
 
-<section class= "container">
-    <h4>Search Feature</h4>
-    <%=form_tag features_path, method: :get do %>
-        <%= text_field_tag :search, params[:search], placeholder: "identify token or title ..." %>
-        <%= submit_tag "Search"%>
-    <%end%><br>
-</section>
-
-</body>
+        <section class="container">
+            <h2>Project Dashboard</h2>
+            <div class="row">
+                <div class="col-md-4" id="col1">
+                    <h4>Current Iteration</h4>
+                    <%= link_to "+ Add Feature", new_feature_path({panel: "Current itteration",project_id: @project_id,feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%><br>
+                    <button onclick="btn1()"class="btn"><i class="fa fa-close"></i></button>
+                </div>
+                <div class="col-md-4" id="col2">
+                    <h4>Backlog</h4>
+                    <%= link_to "+ Add Feature", new_feature_path({panel: "Backlog",project_id: @project_id, feature_work_status: "Done"}), method: :get, :class=> "custom1"%><br>
+                    <button onclick="btn2()" class="btn"><i class="fa fa-close"></i></button>
+                </div>
+                <div class="col-md-4" id="col3">
+                    <h4>Icebox</h4>
+                    <%= link_to "+ Add Feature", new_feature_path({panel: "Icebox",project_id: @project_id,feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%><br>
+                    <button onclick="btn3()" class="btn"><i class="fa fa-close"></i></button>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class= "container">
+            <h4>Search Feature</h4>
+            <%=form_tag features_path, method: :get do %>
+                <%= text_field_tag :search, params[:search], placeholder: "identify token or title ..." %>
+                <%= submit_tag "Search"%>
+            <%end%><br>
+        </section>
+    </body>
 </html>

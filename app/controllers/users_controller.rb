@@ -1,13 +1,11 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:new, :create, :callback]
     before_action :get_user, only: [:show, :edit, :update]
-
-
+     
     def get_user
         @user = User.find(params[:id])
     end    
-  
-  
+    
     def new
         @user = User.new
     end
@@ -26,23 +24,20 @@ class UsersController < ApplicationController
     def callback
         # Access the authentication hash for omniauth
         data = request.env['omniauth.auth']
-
         render json: data.to_json
-
     end
-      
-
+    
     def createproject
         @user = current_user
         @user_id = current_user.id
     end  
-    
+
     def show
     end
-
+    
     def edit 
     end
-  
+
     def update
         if @user.update(user_params)
             redirect_to @user,success: "Informations are updated"
@@ -58,9 +53,9 @@ class UsersController < ApplicationController
         redirect_to welcome_path, success: "Your profile is deleted and a confirmation mail is sent. "
     end
     
-  
     private 
     def user_params
         params.require(:user).permit(:username, :image, :password, :firstname, :lastname, :gender, :reset_digest, :reset_sent_at)
     end  
+
 end

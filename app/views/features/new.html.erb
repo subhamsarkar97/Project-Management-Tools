@@ -9,7 +9,6 @@
         </div>
         <h4>Assign Member:--</h4>
         
-        
         <div class="field">
             <%= f.label "Members Name" %>
             <%= collection_select( :feature, :user_id, User.all, :id, :firstname, {}, {multiple: false} ) %><br>
@@ -50,10 +49,8 @@
                 <%= link_to_add_fields "Add more task", f, :jobs %>
             </div>   
         </section>
-
-
         <%= f.submit "Submit", class: "btn btn-primary" %>
-      <% end %>   
+    <% end %>   
 </section>
 
 

@@ -1,5 +1,5 @@
 class FeatureMailer < ApplicationMailer
-
+    
     def assign_feature
         @feature = params[:feature]
         mail(to: @feature.mailId, subject: 'Feature Assigned')
@@ -9,4 +9,5 @@ class FeatureMailer < ApplicationMailer
         @feature = params[:feature]
         mail(to: @feature.mailId, subject: 'Status updated')
     end
+    
 end

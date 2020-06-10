@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     skip_before_action :authorized, only: [:new, :create, :welcome, :index]
+    
     def index
     end  
   
@@ -16,6 +17,7 @@ class SessionsController < ApplicationController
             redirect_to login_path, danger: "Invalid Username or Password"
         end  
     end
+    
     def login
     end
 
@@ -31,4 +33,5 @@ class SessionsController < ApplicationController
         @current_user = nil
         redirect_to welcome_path, success: "You are Successfully logged out !!"
     end  
+
 end

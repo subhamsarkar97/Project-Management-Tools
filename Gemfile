@@ -9,6 +9,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.1'
 gem 'fog-aws', '~> 3.6', '>= 3.6.3'
 gem 'httparty', '~> 0.17.1'
+gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.4'
 gem 'mini_magick', '~> 4.10', '>= 4.10.1'
@@ -17,12 +18,9 @@ gem 'notifications'
 gem 'omniauth-oauth2', '~> 1.6'
 gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
-
-
-
+gem 'public_activity', '~> 1.6', '>= 1.6.4'
 
 # Use sqlite3 as the database for Active Record
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Use Puma as the app server
