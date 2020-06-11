@@ -1,32 +1,46 @@
 <%=render 'navbar'%>
 <section class="container">
-    <h3>About Feature</h3>
-    <h5>Identity Token :-- <%=@feature.identity_token %></h5>
-    <hr>
-    <h3>Assigned Member</h3>
-    <h4> Email:--  <%= @feature.mailId %><br></h4>
-    <hr>
-    <h3>Feature Information :-- </h3><br>
-    <h4>Status:--<%=@feature.status%></h4>
-    <h4>Panel:- <%= @feature.panels %><br></h4>
-    <h4> Feature Title:--  <%= @feature.title %><br></h4>
-    <h4>  Feature Description:--</h4>
-    <%= @feature.description %>
-    <hr>
-    <h3>Task Information  </h3>
-    No of Tasks:- <%= @feature.jobs.count %><br>
-        No of Tasks Completed:-(<%=@feature.jobs.count%>/0)<br>
-    <%= render @feature.jobs %>     
-    <br><%=link_to 'Add more task or edit feature',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br><br>
-    <h4>Comment Box</h4>
-    <hr>
-    <section class="Chat box">
-        Comments:- 
-        <div id = "comments">
-            <%= render @feature.comments %>
+    <h2>About Feature</h2>
+    <div class="about_feature">
+        <div class = "identity_token">
+            <p>Identity Token :-- <%=@feature.identity_token %></p>
         </div>
+        <hr>
+        <div class = "assigned_member">
+            <h3>Assigned Member</h3>
+            <h4> Email:--  <%= @feature.mailId %><br></h4>
+        </div>
+        <hr>
+        <div class= "feature_info">
+            <h3>Feature Information :-- </h3><br>
+            <h4>Status:--<%=@feature.status%></h4>
+            <h4>Panel:- <%= @feature.panels %><br></h4>
+            <h4> Feature Title:--  <%= @feature.title %><br></h4>
+            <h4>  Feature Description:--</h4>
+            <%= @feature.description %>
+        </div>
+
+        <hr>
+        <h3>Task Information  </h3>
+        <div class="Task">
+            No of Tasks:- <%= @feature.jobs.count %><br>
+                No of Tasks Completed:-(<%=@feature.jobs.count%>/0)<br>
+            <%= render @feature.jobs %>     
+            <br><%=link_to 'Add more task or edit feature',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br><br>
+        </div>
+    </div>
+    
+    <hr>
+    <h4>Comment Box</h4>
+
+    <section class="Chat box">
+            Comments:- 
+            <div id = "comments">
+                <%= render @feature.comments %>
+            </div>
     </section> 
     <hr>    
+    
     <section class="Comments">
         <h4>Chat Box</h4>
         <div class="comment-form">

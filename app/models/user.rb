@@ -13,6 +13,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
     validates :password, presence: true, length: { minimum: 3 }
+    validate  :picture_size
     GENDER_LIST = ["Male","Female","Custom"]
     
     def User.digest(string)
@@ -34,6 +35,13 @@ class User < ApplicationRecord
     def authenticated?(remember_token)
         BCrypt::Password.new(remember_digest).is_password?(remember_token)
     end
+    
+    #To validate the size of the picture
+    def picture_size
+        if image.size > 5.megabytes
+            errors.add(:picture, "should be less that 5 mb")
+        end    
+    end     
     
     # Forgeting an user.
     def forget

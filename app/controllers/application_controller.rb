@@ -57,11 +57,11 @@ class ApplicationController < ActionController::Base
         cookies.delete(:remember_token)
     end
     
-    def  current_project
+    def current_project
         @current_project ||= Project.find_by(id: session[:project_id])
     end
     
-    def  current_feature
+    def current_feature
         @current_feature ||= Feature.find_by(id: session[:feature_id])
     end  
     

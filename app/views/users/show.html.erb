@@ -13,21 +13,28 @@
                     <%= link_to "EDIT PROFILE", edit_user_path , method: :get, class: "custom5"%>
                 </li>
                 <li class="nav-item active">
-                    <%= link_to "Notifications", activities_path , method: :get, class: "custom5"%>
+                    <%= link_to "NOTIFICATIONS", activities_path , method: :get, class: "custom5"%>
                 </li>
                 <li class="nav-item active">
                     <%= link_to "DELETE PROFILE", user_path , method: :delete , data: { confirm: "Are you sure?"}, :class => "custom5" %> 
                 </li>
                 <li class="nav-item active">
-                    <%= link_to "LOG OUT", welcome_path , method: :delete%>
+                    <%= link_to "LOG OUT", welcome_path , method: :delete, :class => "custom5" %>
                 </li>
             </ul>
         </div>
     </nav> 
 </section>
-<section class = "profile_picture">
+
+<section class = "profile_picture container">
     <%= image_tag @user.image.url if @user.image? %>
-</section>    
+    <div>
+        <span class="picture_text">
+            <%=@user.firstname%> <%= @user.lastname%>
+        </span>
+    </div>
+</section>  
+
 <div class="auth_section">
     <section class="container">    
         <h1 class="text-center">Welcome <%=@user.firstname%></h1>
@@ -35,15 +42,10 @@
         <%= link_to " Create Project", create_project_path ,method: :get, :class => "btn btn-primary button fa fa-plus-circle rend"%>
     </section>
 </div>
-<h2 class="text-center text">Search for the feature</h2>
-<section class= "container">
-    <h4>Search Feature</h4>
-    <%=form_tag features_path, method: :get do %>
-        <%= text_field_tag  :search, params[:search], placeholder: "identity token or title ...", presence: true %>
-        <%= submit_tag "Search"%>
-    <%end%><br>
-</section>
 
+<p class="text-center text">Search for the feature</p>
+
+<%= render 'projects/search' %>
 
 
 

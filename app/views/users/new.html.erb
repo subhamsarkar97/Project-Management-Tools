@@ -11,7 +11,7 @@
                 <%= p.label "Gender"%><br>
                 <%= p.select(:gender, User::GENDER_LIST) %><br>
                 <%= p.label "Profile picture" %><br>
-                <%= p.file_field :image %><br>
+                <%= p.file_field :image, accept: 'image/jpeg,image/gif,image/png' %><br>
                 <%= p.label "Email"%><br>
                 <%= p.text_field :username, placeholder: "Email ...", class: "form-control"%><br>
                 <%= p.label :password%><br>
@@ -22,3 +22,13 @@
         </div>
     </div>        
 </section>
+
+<script type="text/javascript">
+  $('#new_user').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
+

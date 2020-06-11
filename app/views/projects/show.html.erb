@@ -106,29 +106,23 @@
             <h2>Project Dashboard</h2>
             <div class="row">
                 <div class="col-md-4" id="col1">
-                    <h4>Current Iteration</h4>
+                    <p>Current Iteration</p>
                     <%= link_to "+ Add Feature", new_feature_path({panel: "Current itteration",project_id: params[:id],feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%><br>
                     <button onclick="btn1()"class="btn"><i class="fa fa-close"></i></button>
                 </div>
                 <div class="col-md-4" id="col2">
-                    <h4>Backlog</h4>
+                    <p>Backlog</p>
                     <%= link_to "+ Add Feature", new_feature_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"}), method: :get, :class=> "custom1"%><br>
                     <button onclick="btn2()" class="btn"><i class="fa fa-close"></i></button>
                 </div>
                 <div class="col-md-4" id="col3">
-                    <h4>Icebox</h4>
+                    <p>Icebox</p>
                     <%= link_to "+ Add Feature", new_feature_path({panel: "Icebox",project_id: params[:id],feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%><br>
                     <button onclick="btn3()" class="btn"><i class="fa fa-close"></i></button>
                 </div>
             </div>
         </section>
         <hr>
-        <section class= "container">
-            <h4>Search Feature</h4>
-            <%=form_tag features_path, method: :get do %>
-                <%= text_field_tag :search, params[:search], placeholder: "identity token or title ...", presence: true %>
-                <%= submit_tag "Search"%>
-            <%end%><br>
-        </section>
+        <%= render 'search' %>
     </body>
 </html>

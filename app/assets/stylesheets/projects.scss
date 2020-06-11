@@ -1,3 +1,28 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.new_project > p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#col1 > p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#col2 > p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#col3 > p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.project_container > span {
+    font-size: 20px;
+    font-weight: 500;
+}

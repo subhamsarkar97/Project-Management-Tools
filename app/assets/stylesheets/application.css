@@ -14,10 +14,10 @@
  *= require_self
  */
 
- .custom5{
-    margin: 10px
- }
- .custom4{
-    margin: 5px
+.custom5 {
+    margin: 10px;
+    font-size: 14px;
 }
-
+.custom4 {
+    margin: 5px;
+}

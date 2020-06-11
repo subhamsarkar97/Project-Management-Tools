@@ -1,7 +1,7 @@
 <%= render 'projects/navbar' %>
-<section class="container">
+<section class="container new_project">
     <%= render 'shared/error_messages' %>
-    <h4>Create New Project</h4>
+    <p>Create New Project</p>
     <%= form_for ([@user, @user.projects.build]) do |project| %>
         <%= project.label "Project Title" %>
         <%= project.text_field :projectname, placeholder: "project title..." ,class: "form-control" %><br>
