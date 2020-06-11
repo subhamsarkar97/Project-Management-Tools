@@ -1,4 +1,5 @@
 <%=render 'navbar'%>
+
 <section class="container">
     <h2>About Feature</h2>
     <div class="about_feature">
@@ -7,26 +8,26 @@
         </div>
         <hr>
         <div class = "assigned_member">
-            <h3>Assigned Member</h3>
-            <h4> Email:--  <%= @feature.mailId %><br></h4>
+            <h2>Assigned Member</h2>
+            <p> Email:--  <%= @feature.mailId %><br></p>
         </div>
         <hr>
         <div class= "feature_info">
             <h3>Feature Information :-- </h3><br>
-            <h4>Status:--<%=@feature.status%></h4>
-            <h4>Panel:- <%= @feature.panels %><br></h4>
-            <h4> Feature Title:--  <%= @feature.title %><br></h4>
-            <h4>  Feature Description:--</h4>
+            <p>Status:--<%=@feature.status%></p>
+            <p>Panel:- <%= @feature.panels %><br></p>
+            <p> Feature Title:--  <%= @feature.title %><br></p>
+            <p>  Feature Description:--</p>
             <%= @feature.description %>
         </div>
 
         <hr>
-        <h3>Task Information  </h3>
         <div class="Task">
-            No of Tasks:- <%= @feature.jobs.count %><br>
-                No of Tasks Completed:-(<%=@feature.jobs.count%>/0)<br>
+            <h3>Task Information  </h3>
+            <p>No of Tasks:- <%= @feature.jobs.count %></p>
+            <p>No of Tasks Completed:-(<%=@feature.jobs.count%>/0)</p>
             <%= render @feature.jobs %>     
-            <br><%=link_to 'Add more task or edit feature',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br><br>
+            <%=link_to 'Add more task or edit feature',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br><br>
         </div>
     </div>
     
