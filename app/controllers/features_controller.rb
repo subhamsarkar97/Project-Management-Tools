@@ -1,6 +1,6 @@
 class FeaturesController < ApplicationController
     before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :view, :savetask]
-    before_action :get_user_id, only: [:index, :new, :edit, :update, :show ]
+    before_action :get_user_id, only: [:index, :new, :edit, :update, :show,:view]
     before_action :get_feature, only: [:edit, :update, :show]
     
     def get_user_id
@@ -44,6 +44,7 @@ class FeaturesController < ApplicationController
     end
 
     def view
+
     end  
     
     def show
