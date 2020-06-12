@@ -21,3 +21,21 @@
 .custom4 {
     margin: 5px;
 }
+
+footer {
+    min-height: 40px;
+    background-color: #000000;
+    position: relative;
+}
+.footer_item1,
+.footer_item2 {
+    position: absolute;
+}
+
+.footer_item1 {
+    top: 8px;
+}
+.footer_item2 {
+    top: 6px;
+    right: 6px;
+}

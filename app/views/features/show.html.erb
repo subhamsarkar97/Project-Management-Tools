@@ -1,31 +1,39 @@
 <%=render 'navbar'%>
 
-<section class="container">
+<section class="container show_feature">
     <h2>About Feature</h2>
     <div class="about_feature">
         <div class = "identity_token">
-            <p>Identity Token :-- <%=@feature.identity_token %></p>
+            <span>Identity Token :-- <%=@feature.identity_token %></span>
         </div>
         <hr>
         <div class = "assigned_member">
             <h2>Assigned Member</h2>
-            <p> Email:--  <%= @feature.mailId %><br></p>
+            <span> Email:--  <%= @feature.mailId %><br></span>
         </div>
         <hr>
         <div class= "feature_info">
             <h3>Feature Information :-- </h3><br>
-            <p>Status:--<%=@feature.status%></p>
-            <p>Panel:- <%= @feature.panels %><br></p>
-            <p> Feature Title:--  <%= @feature.title %><br></p>
-            <p>  Feature Description:--</p>
-            <%= @feature.description %>
+            <div class = "feature_status">    
+                <span>Status:--<%=@feature.status%></span>
+            </div>
+            <div class = "feature_panel">    
+                <span>Panel:- <%= @feature.panels %><br></span>
+            </div>    
+            <div class = "feature_title">    
+                <span> Feature Title:--  <%= @feature.title %></span>
+            </div>
+            <div class = "feature_description">    
+                <span>  Feature Description:--</span>
+                <%= @feature.description %>
+            </div>    
         </div>
 
         <hr>
         <div class="Task">
             <h3>Task Information  </h3>
-            <p>No of Tasks:- <%= @feature.jobs.count %></p>
-            <p>No of Tasks Completed:-(<%=@feature.jobs.count%>/0)</p>
+            <span>No of Tasks:- <%= @feature.jobs.count %></span><br>
+            <span>No of Tasks Completed:-(<%=@feature.jobs.count%>/0)</span>
             <%= render @feature.jobs %>     
             <%=link_to 'Add more task or edit feature',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br><br>
         </div>
