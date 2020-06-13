@@ -111,7 +111,7 @@
                         <%= link_to "+ Add Feature", new_feature_path({panel: "Current_itteration", project_id: @current_project.id,feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%>
                     </div>
                     <div class = "view_features">
-                        <%= link_to "View Features", view_path({panel: "Current_itteration", project_id: params[:id],feature_work_status: "Finalised"}) , method: :get, :class=> "custom1 btn btn-primary"%>
+                        <%= link_to "View Features", view_path({panel_search: "Current_itteration",unique_id: params[:id]}) , method: :get, :class=> "custom1 btn btn-primary"%>
                     </div>
                     <div class = "close1">
                         <button onclick="btn1()"class="btn"><i class="fa fa-close">Close</i></button>
@@ -123,7 +123,7 @@
                         <%= link_to "+ Add Feature", new_feature_path({panel: "Backlog", project_id: @current_project.id, feature_work_status: "Done"}), method: :get, :class=> "custom1"%>
                     </div>
                     <div class = "view_features">
-                        <%= link_to "View Features", view_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"}), method: :get, :class=> "custom1 btn btn-primary"%>
+                        <%= link_to "View Features", view_path({panel_search: "Backlog",unique_id: params[:id]}), method: :get, :class=> "custom1 btn btn-primary"%>
                     </div>
                     <div class = "close2">
                         <button onclick="btn2()" class="btn"><i class="fa fa-close">Close</i></button>
@@ -135,7 +135,7 @@
                         <%= link_to "+ Add Feature", new_feature_path({panel: "Icebox",project_id: @current_project.id,feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%>
                     </div>
                     <div classs = "view_features">
-                        <%= link_to "View Features", view_path({panel: "Icebox",project_id: params[:id],feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1 btn btn-primary"%>
+                        <%= link_to "View Features", view_path({panel_search: "Icebox",unique_id: params[:id]}), method: :get, :class=> "custom1 btn btn-primary"%>
                     </div>
                     <div class = "close3">
                         <button onclick="btn3()" class="btn"><i class="fa fa-close">Close</i></button>

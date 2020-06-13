@@ -54,7 +54,13 @@ class ProjectsController < ApplicationController
     end 
     
     def view
-        @feature = Feature.where(" project_id = ? ", current_project.id )
+        if params[:panel_search] == "Current_itteration"
+            @feature = Feature.where(" project_id = ? AND panels = ? ", current_project.id, params[:panel_search])
+        elsif params[:panel_search] == "Backlog"
+            @feature = Feature.where(" project_id = ? AND panels = ? ", current_project.id, params[:panel_search])
+        elsif params[:panel_search] == "Icebox"
+            @feature = Feature.where("project_id = ? AND panels = ? ", current_project.id, params[:panel_search])    
+        end 
     end    
  
     private 
