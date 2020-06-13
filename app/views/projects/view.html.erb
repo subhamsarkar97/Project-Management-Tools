@@ -1,0 +1,9 @@
+<%=render 'features/navbar'%>
+<div class = "view_features container">
+    <h2>Feature Dashboard</h2>
+    <div class = "feature_list">
+        <% @feature.each do |f| %>
+            <%= f.title %>
+        <% end %>    
+    </div>       
+</div>

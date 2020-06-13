@@ -1,5 +1,5 @@
 <br>
-<section class="edit">
+<section class="edit add_task">
     <%= form_tag( save_path, method: "post", id: "sel") do  %> 
             <%= check_box_tag "feature[jobs_ids][]", job.id %>
             <%=label_tag job.taskname %><br>
@@ -7,7 +7,6 @@
             <button class="btn btn-primary">SAVE</button>  
     <%end%>     
 </section>  
-<hr>
 <script rel="javascript" src="job.js">
 </script>
 

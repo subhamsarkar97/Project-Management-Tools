@@ -12,6 +12,7 @@
             <span> Email:--  <%= @feature.mailId %><br></span>
         </div>
         <hr>
+
         <div class= "feature_info">
             <h3>Feature Information :-- </h3><br>
             <div class = "feature_status">    
@@ -26,12 +27,18 @@
             <div class = "feature_description">    
                 <span>  Feature Description:--</span>
                 <%= @feature.description %>
-            </div>    
+            </div> 
+            <section class = "picture">
+                <%= image_tag @feature.picture.url if @feature.picture? %>
+                    <div class = "feature_picture">
+                        <span>Feature Picture</>
+                    </div>
+            </section>  
         </div>
+        
 
-        <hr>
         <div class="Task">
-            <h3>Task Information  </h3>
+            <h3>Task Information:-  </h3>
             <span>No of Tasks:- <%= @feature.jobs.count %></span><br>
             <span>No of Tasks Completed:-(<%=@feature.jobs.count%>/0)</span>
             <%= render @feature.jobs %>     

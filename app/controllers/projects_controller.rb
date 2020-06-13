@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-    before_action :authorized, only: [:create, :new, :show, :edit, :update, :get_user, :get_project1, :get_project, :get_user_id, :createfeature]
-    before_action :get_user, except: [:createfeature]
+    before_action :authorized, only: [:create, :new, :show, :edit, :update, :get_user, :get_project1, :get_project, :get_user_id, :createfeature, :view]
+    before_action :get_user, except: [:createfeature, :view]
     before_action :get_project1, only: [:show]
     before_action :get_project, only: [:edit, :update]
     before_action :get_user_id, except: [:create, :project]
@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     
     def get_user_id
         @user_id = current_user.id
-    end    
+    end 
     
     def create
         @project = @user.projects.build(post_params)
@@ -51,6 +51,10 @@ class ProjectsController < ApplicationController
         else
             render 'edit', danger: "Please fill the fields properly !!"
         end        
+    end 
+    
+    def view
+        @feature = Feature.where(project_id: current_project.id)
     end    
  
     private 

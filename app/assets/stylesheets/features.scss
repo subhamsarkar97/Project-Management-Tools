@@ -36,3 +36,24 @@
 .edit_feature {
     margin-bottom: 30px;
 }
+
+.picture {
+    position: relative;
+}
+
+.feature_picture {
+    position: absolute;
+    left: 40px;
+}
+
+.feature_info {
+    margin-bottom: 70px;
+}
+
+.feature_picture > span {
+    font-weight: bold;
+}
+
+.add_task {
+    margin-bottom: 40px;
+}
