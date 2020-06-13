@@ -30,9 +30,11 @@
             </div> 
             <section class = "picture">
                 <%= image_tag @feature.picture.url if @feature.picture? %>
+                <% if @feature.picture %>    
                     <div class = "feature_picture">
                         <span>Feature Picture</>
                     </div>
+                <%end%>        
             </section>  
         </div>
         

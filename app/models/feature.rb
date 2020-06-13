@@ -4,7 +4,7 @@ class Feature < ApplicationRecord
     
     has_secure_token :identity_token
     belongs_to :user
-    validates :title, presence: true, length: { maximum: 255 },uniqueness: { case_sensitive: false }
+    validates :title, presence: true, length: { maximum: 255 }
     validates :description, presence: true, length: { maximum: 1000 }
     has_many :comments
     mount_uploader :picture, PictureUploader

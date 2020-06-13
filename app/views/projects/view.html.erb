@@ -3,7 +3,8 @@
     <h2>Feature Dashboard</h2><hr>
     <div class = "feature_list">
         <% @feature.each do |f| %>
-            <%= f.title %>
+            <%= f.title %><br>
+            <%= link_to "show more", f %>
         <% end %>    
     </div>       
 </div>
