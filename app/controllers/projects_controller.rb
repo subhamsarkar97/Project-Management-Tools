@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
     end 
     
     def view
-        @feature = Feature.where(project_id: current_project.id)
+        @feature = Feature.where(" project_id = ? ", current_project.id )
     end    
  
     private 

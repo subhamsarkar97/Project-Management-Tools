@@ -12,6 +12,7 @@ class Feature < ApplicationRecord
     accepts_nested_attributes_for :jobs, allow_destroy: true
     INITIAL_LIST = ["Started"]
     STATUS_LIST = ["Started", "Finished", "Delivered"]
+    PANEL_LIST = ["Current_itteration", "Backlog", "Icebox"]
     EMAIL_LIST = []
     email_array = User.all.map { |user| user.username }
     email_array.each do |f|

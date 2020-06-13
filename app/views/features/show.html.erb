@@ -28,6 +28,7 @@
                 <span>  Feature Description:--</span>
                 <%= @feature.description %>
             </div> 
+            
             <section class = "picture">
                 <%= image_tag @feature.picture.url if @feature.picture? %>
                 <% if @feature.picture %>    
@@ -44,7 +45,7 @@
             <span>No of Tasks:- <%= @feature.jobs.count %></span><br>
             <span>No of Tasks Completed:-(<%=@feature.jobs.count%>/0)</span>
             <%= render @feature.jobs %>     
-            <%=link_to 'Add more task or edit feature',  edit_feature_path(), method: :get, class: 'btn btn-primary'%><br><br>
+            <%=link_to 'Add more task or edit feature',  edit_feature_path({project_id: @feature.project_id}), method: :get, class: 'btn btn-primary'%><br><br>
         </div>
     </div>
     

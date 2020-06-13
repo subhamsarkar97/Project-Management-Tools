@@ -15,11 +15,20 @@
             <%= f.label :description %><br>
             <%= f.text_area :description, placeholder: "Description...", class: "form-control"  %><br>
         </div><br>
+        
+        <div class = "feature_panel">
+            <%= f.label "Panel"%><br>
+            <%= f.select(:panels, Feature::PANEL_LIST) %>
+        </div>
+        <%=f.hidden_field :project_id, value: params[:project_id]%>
         <span class="picture">
             <%= f.file_field :picture %>
         </span><br><br>
+        
         <%=f.hidden_field :project_id, value: params[:project_id]%>
+        
         <hr>
+        
         <h4>Add Task </h4>
         <section id = "tasks">
             <div class="fields">

@@ -4,7 +4,9 @@
     <div class = "feature_list">
         <% @feature.each do |f| %>
             <%= f.title %><br>
-            <%= link_to "show more", f %>
+                <div class = "see_more_about_feature">
+                    <%= link_to "show more", f %>
+                </div>  
         <% end %>    
     </div>       
 </div>
