@@ -1,6 +1,6 @@
 class FeaturesController < ApplicationController
     before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :savetask, :get_project]
-    before_action :get_user_id, only: [:index, :new, :edit, :update, :show]
+    before_action :get_user_id, only: [:index, :new, :edit, :update, :show, :destroy]
     before_action :get_feature, only: [:edit, :update, :show]
     before_action :get_project, only: [:new, :show, :edit]
     
@@ -56,7 +56,8 @@ class FeaturesController < ApplicationController
     def destroy
         @feature = Feature.find(params[:id])
         @feature.destroy
-        redirect_to user_path, success: "Feature is deleted"
+        DeleteFeatureMailer.with(feature: @feature).delete_mail.deliver
+        redirect_to user_path(current_user.id), success: "Feature is deleted and a confirmation mail is sent."
     end    
 
 
