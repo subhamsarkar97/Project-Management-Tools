@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user), success: "Welcome to the project management app !!!"
         else
-            redirect_to new_user_path, danger: "Please fill all the fields correctly"
+            redirect_to new_user_path, danger: "Please fill all the field correctly with an unique emailId"
         end 
     end
 

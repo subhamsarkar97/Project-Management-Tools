@@ -38,7 +38,7 @@
 
 footer {
     min-height: 40px;
-    background-color: #000000;
+    background-color: #0099ff;
     position: relative;
 }
 
@@ -50,7 +50,12 @@ footer {
 .footer_item1 {
     top: 8px;
 }
+
 .footer_item2 {
     top: 6px;
     right: 6px;
+}
+
+.navbar > h1 {
+    color: #008ae6;
 }

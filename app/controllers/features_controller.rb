@@ -46,7 +46,12 @@ class FeaturesController < ApplicationController
     def show
         @user_name = current_user.firstname
         session[:feature_id] = @feature.id
-    end   
+    end 
+    
+    def destroy
+        
+    end    
+
 
     private 
     def feature_params
