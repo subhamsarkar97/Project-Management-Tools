@@ -61,7 +61,18 @@ class ProjectsController < ApplicationController
         elsif params[:panel_search] == "Icebox"
             @feature = Feature.where("project_id = ? AND panels = ? ", current_project.id, params[:panel_search])    
         end 
+    end 
+    
+    def destroy
+        @project = Project.find(params[:id])
+        @features = Feature.where(project_id: @project.id)
+        @features.each do |feature|
+            feature.destroy
+        end
+        @project.destroy
+        redirect_to user_path(current_user.id), success: "Project is deleted as well as the features if any !!"  
     end    
+
  
     private 
     def post_params

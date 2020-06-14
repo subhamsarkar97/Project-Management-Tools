@@ -49,7 +49,9 @@ class FeaturesController < ApplicationController
     end 
     
     def destroy
-        
+        @feature = Feature.find(params[:id])
+        @feature.destroy
+        redirect_to user_path, success: "Feature is deleted"
     end    
 
 
