@@ -1,7 +1,8 @@
 class FeaturesController < ApplicationController
-    before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :savetask]
+    before_action :authorized, only: [:create, :new, :show, :edit, :update, :index, :savetask, :get_project]
     before_action :get_user_id, only: [:index, :new, :edit, :update, :show]
     before_action :get_feature, only: [:edit, :update, :show]
+    before_action :get_project, only: [:new, :show, :edit]
     
     def get_user_id
         @user_id = current_user.id
@@ -14,6 +15,10 @@ class FeaturesController < ApplicationController
     def index
         @feature = Feature.where(["identity_token LIKE ?",params[:search]]).or(Feature.where(["title LIKE ?",params[:search]]))
     end  
+
+    def get_project
+        @project = current_project
+    end    
     
     def new
         @feature = Feature.new

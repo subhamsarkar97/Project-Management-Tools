@@ -10,7 +10,7 @@
                     <%= link_to "PROFILE",user_path(@user_id) , method: :get, class: "custom5"%>
                 </li>
                 <li class="nav-item active">
-                    <%= link_to "CREATE FEATURE", create_feature_path, method: :get, class: "custom5"%>
+                    <%= link_to "CREATE FEATURE", user_project_path(user_id: current_user.id, id: @project.id), method: :get, class: "custom5"%>
                 </li>
                 <li class="nav-item active">
                     <%= link_to "DELETE FEATURE", feature_path, method: :delete, data: {confirm: "Are you sure?"}, class: "custom5"%>
