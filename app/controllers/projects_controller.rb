@@ -24,8 +24,9 @@ class ProjectsController < ApplicationController
     def create
         @project = @user.projects.build(post_params)
         if @project.save
+            ProjectMailer.with(user: @user).add_project.deliver
             session[:project_id] = @project.id
-            redirect_to user_projects_profile_path, success: "Projects is created"
+            redirect_to user_projects_profile_path, success: "Projects is created and a mail is send"
         else
             redirect_to create_project_path, danger: "Please fill the field properly !!"
         end        
@@ -67,7 +68,8 @@ class ProjectsController < ApplicationController
             feature.destroy
         end
         @project.destroy
-        redirect_to user_path(current_user.id), success: "Project is deleted as well as the features if any !!"  
+        ProjectMailer.with(user: @user).add_project.deliver
+        redirect_to user_path(current_user.id), success: "Project is deleted as well as the features if any and a confirmation is also send !!"  
     end    
 
  
