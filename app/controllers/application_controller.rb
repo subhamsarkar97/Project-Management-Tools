@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
     helper_method :logged_in?
     before_action :set_user
 
+    include PublicActivity::StoreController
+
     add_flash_types :danger, :info, :warning, :success
 
     def save_in_params(auth_hash)
@@ -44,6 +46,7 @@ class ApplicationController < ActionController::Base
             @useremail = username   
         end
     end
+   
     
     def remember(user)
         user.remember
@@ -59,11 +62,11 @@ class ApplicationController < ActionController::Base
     
     def current_project
         @current_project ||= Project.find_by(id: session[:project_id])
-    end
-    
+    end 
+
     def current_feature
         @current_feature ||= Feature.find_by(id: session[:feature_id])
-    end  
+    end 
     
     def logged_in?
         !current_user.nil?

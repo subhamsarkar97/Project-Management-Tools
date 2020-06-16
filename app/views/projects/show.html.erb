@@ -52,7 +52,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
                 <section class="container navbar">
-                    <h1>Project Management Tool</h1>
+                    <p>Project Management Tool</p>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button> 
@@ -80,9 +80,9 @@
         </section>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <%= link_to "Current_itter", new_feature_path({panel: "Current itteration",project_id: params[:id],feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%>
-            <%= link_to "Backlog", new_feature_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"}), method: :get, :class=> "custom1"%>
-            <%= link_to "Icebox", new_feature_path({panel: "Icebox",project_id: params[:id],feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%>
+            <%= link_to "Current_itter", new_feature_path({project_id: params[:id], panel: "Current_itteration"}) , method: :get, :class=> "custom1"%>
+            <%= link_to "Backlog", new_feature_path({project_id: params[:id], panel: "Backlog"}), method: :get, :class=> "custom1"%>
+            <%= link_to "Icebox", new_feature_path({project_id: params[:id], panel: "Icebox"}), method: :get, :class=> "custom1"%>
         </div>
         <script>
             
@@ -106,12 +106,12 @@
             }
         </script>
         <section class="container">
-            <h2>Project Dashboard</h2>
+            <h4>Project Dashboard</h4>
             <div class="row">
                 <div class="col-md-4" id="col1">
                     <p>Current Iteration</p>
                     <div class= "add_feature">
-                        <%= link_to "+ Add Feature", new_feature_path({panel: "Current_itteration",project_id: params[:id],feature_work_status: "Finalised"}) , method: :get, :class=> "custom1"%>
+                        <%= link_to "+ Add Feature", new_feature_path({project_id: params[:id], panel: "Current_itteration"}) , method: :get, :class=> "custom1"%>
                     </div>
                     <div class = "view_features">
                         <%= link_to "View Features", view_path({panel_search: "Current_itteration",unique_id: params[:id]}) , method: :get, :class=> "custom1 btn btn-primary"%>
@@ -123,7 +123,7 @@
                 <div class="col-md-4" id="col2">
                     <p>Backlog</p>
                     <div class= "add_feature">
-                        <%= link_to "+ Add Feature", new_feature_path({panel: "Backlog",project_id: params[:id], feature_work_status: "Done"}), method: :get, :class=> "custom1"%>
+                        <%= link_to "+ Add Feature", new_feature_path({project_id: params[:id], panel: "Backlog"}), method: :get, :class=> "custom1"%>
                     </div>
                     <div class = "view_features">
                         <%= link_to "View Features", view_path({panel_search: "Backlog",unique_id: params[:id]}), method: :get, :class=> "custom1 btn btn-primary"%>
@@ -135,7 +135,7 @@
                 <div class="col-md-4" id="col3">
                     <p>Icebox</p>
                     <div class = "add_feature">
-                        <%= link_to "+ Add Feature", new_feature_path({panel: "Icebox",project_id: params[:id],feature_work_status: "Not yet finalised"}), method: :get, :class=> "custom1"%>
+                        <%= link_to "+ Add Feature", new_feature_path({project_id: params[:id], panel: "Icebox"}), method: :get, :class=> "custom1"%>
                     </div>
                     <div classs = "view_features">
                         <%= link_to "View Features", view_path({panel_search: "Icebox",unique_id: params[:id]}), method: :get, :class=> "custom1 btn btn-primary"%>

@@ -3,17 +3,15 @@ Rails.application.routes.draw do
         resources :projects, except: [:index] 
         get "projects", to: 'projects#projects', as: 'projects_profile'
     end 
-
     resources :features do
         resources :comments
-    end  
-
+        put :savetask, on: :collection
+    end
     get "create_project", to: 'users#createproject'
     get 'auth/signout'
     get "/view", to: 'projects#view', as: 'view'
     resources :password_resets, only: [:new, :create, :edit, :update]
     post "task", to:'features#create', as: 'add_task'
-    post "save", to: 'features#savetask'
     resources :activities
     resources :mentions, only: [:index]
     match '/auth/:provider/callback', to: 'users#callback', via: [:get, :post]

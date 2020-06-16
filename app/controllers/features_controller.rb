@@ -28,11 +28,12 @@ class FeaturesController < ApplicationController
     def create
         @feature = Feature.new(feature_params)
         if @feature.save
+            session[:feature_id] = @feature.id
             FeatureMailer.with(feature: @feature).assign_feature.deliver
-            redirect_to @feature, success: "Feature is created"
+            redirect_to @feature, success: "Feature is created and a confirmation mail is sent to the assigned memeber account"
         else
-            flash[:danger] = "Feature title should not be same and fields can not stay empty !!"
-            redirect_to new_feature_path
+            flash[:danger] = "Fields can not stay empty !!"
+            redirect_to user_project_path(user_id: current_user.id, id: current_project.id)
         end    
     end
 
@@ -42,16 +43,20 @@ class FeaturesController < ApplicationController
     def update
         if @feature.update(feature_params)
             FeatureMailer.with(feature: @feature).update_feature.deliver
-            redirect_to @feature, success: "Feature is Updated"
+            redirect_to @feature, success: "Feature is Updated and a confirmation mail is sent to the assigned memeber account"
         else
             render 'edit', danger: "Fields can not be empty !!"
         end           
     end
     
     def show
-        @user_name = current_user.firstname
         session[:feature_id] = @feature.id
     end 
+
+    def savetask
+        Job.update_all(["completed_at = ?", Time.now])
+        redirect_to feature_path(current_feature.id)
+    end    
     
     def destroy
         @feature = Feature.find(params[:id])
@@ -63,7 +68,7 @@ class FeaturesController < ApplicationController
 
     private 
     def feature_params
-        params.require(:feature).permit(:mailId ,:title, :description, :picture, :project_id ,:panels, :feature_work_status, :user_id, :status, :identity_token, :panel_search, :unique_id ,jobs_attributes: [ :id, :_destroy, :taskname, :description, :feature_id, :done])
+        params.require(:feature).permit(:mailId ,:title, :description, :picture, :project_id ,:panels, :user_id, :status, :identity_token, :panel_search, :unique_id ,jobs_attributes: [ :id, :_destroy, :taskname, :description, :feature_id, :completed_at])
     end 
 
 end

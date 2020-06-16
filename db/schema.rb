@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_12_142404) do
+ActiveRecord::Schema.define(version: 2020_06_16_115500) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2020_06_12_142404) do
     t.text "description"
     t.string "picture"
     t.string "panels"
-    t.string "feature_work_status"
     t.string "identity_token"
     t.string "status"
     t.string "mailId"
@@ -101,9 +100,9 @@ ActiveRecord::Schema.define(version: 2020_06_12_142404) do
     t.integer "feature_id"
     t.string "taskname"
     t.text "description"
-    t.boolean "done"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "completed_at"
   end
 
   create_table "projects", force: :cascade do |t|

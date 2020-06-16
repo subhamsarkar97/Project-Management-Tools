@@ -1,9 +1,9 @@
 class ProjectsController < ApplicationController
-    before_action :authorized, only: [:create, :new, :show, :edit, :update, :get_user, :get_project1, :get_project, :get_user_id, :view]
+    before_action :authorized, only: [:create, :new, :show, :projects ,:edit, :update, :get_user, :get_project1, :get_project, :get_user_id, :view]
     before_action :get_user, except: [:view]
     before_action :get_project1, only: [:show]
     before_action :get_project, only: [:edit, :update]
-    before_action :get_user_id, except: [:create, :project]
+    before_action :get_user_id, except: [:create, :projects]
       
     def get_user
         @user = User.find(params[:user_id])
@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
         if @project.save
             ProjectMailer.with(user: @user).add_project.deliver
             session[:project_id] = @project.id
-            redirect_to user_projects_profile_path, success: "Projects is created and a mail is send"
+            redirect_to user_projects_profile_path, success: "Projects is created and a mail is sent"
         else
             redirect_to create_project_path, danger: "Please fill the field properly !!"
         end        

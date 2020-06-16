@@ -1,15 +1,9 @@
-<br>
 <section class="edit add_task">
-    <%= form_tag( save_path, method: "post", id: "sel") do  %> 
-            <%= check_box_tag "feature[jobs_ids][]", job.id %>
-            <%=label_tag job.taskname %><br>
-            <%=label_tag job.description%><br>
-            <button class="btn btn-primary">SAVE</button>  
+    <%= form_tag savetask_features_path, method: :put do |f| %> 
+        <%= check_box_tag "feature[jobs_ids][]", job.id %>
+        <%= label_tag job.taskname %><br>
+        <%= label_tag job.description%><br>
+        <%= submit_tag "SAVE", class: "btn btn-primary" %>  
     <%end%>     
 </section>  
-<script rel="javascript" src="job.js">
-</script>
-
-
-
 

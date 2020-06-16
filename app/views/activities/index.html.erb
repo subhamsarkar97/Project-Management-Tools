@@ -1,6 +1,6 @@
 <section class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <h1>Project Management Tool</h1>
+        <p>Project Management Tool</p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> 
@@ -21,7 +21,10 @@
     <p>Notifications:-</p>
     <div>
         <% @activities.each do |activity| %>
-            <%= activity.inspect %>
+            <div class = "activity"> 
+                <%= link_to activity.owner.firstname, activity.owner if activity.owner %>
+            </div>
         <%end%>    
     </div>
 </section>
+
