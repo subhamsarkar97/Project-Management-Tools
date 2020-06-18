@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :activities
     resources :mentions, only: [:index]
     match '/auth/:provider/callback', to: 'users#callback', via: [:get, :post]
-    get "", to: 'sessions#index'
+    root 'sessions#index'
     get "/welcome", to: 'sessions#welcome'
     post "/login", to:'sessions#create'
     get "/login", to: 'sessions#new'
