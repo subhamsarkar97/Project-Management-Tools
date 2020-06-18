@@ -56,7 +56,8 @@ class FeaturesController < ApplicationController
     def savetask
         Job.update_all(["completed_at = ?", Time.now])
         redirect_to feature_path(current_feature.id)
-    end    
+    end  
+  
     
     def destroy
         @feature = Feature.find(params[:id])
