@@ -9,16 +9,16 @@ Rails.application.routes.draw do
     end
     get "create_project", to: 'users#createproject'
     get 'auth/signout'
-    get "/view", to: 'projects#view', as: 'view'
+    get "view", to: 'projects#view', as: 'view'
     resources :password_resets, only: [:new, :create, :edit, :update]
     post "task", to:'features#create', as: 'add_task'
     resources :activities
     resources :mentions, only: [:index]
-    match '/auth/:provider/callback', to: 'users#callback', via: [:get, :post]
+    match 'auth/:provider/callback', to: 'users#callback', via: [:get, :post]
     root 'sessions#index'
-    get "/welcome", to: 'sessions#welcome'
-    post "/login", to:'sessions#create'
-    get "/login", to: 'sessions#new'
+    get "welcome", to: 'sessions#welcome'
+    post "login", to:'sessions#create'
+    get "login", to: 'sessions#new'
     get "authorized", to: 'sessions#page_requires_login'
-    delete "/welcome", to: 'sessions#destroy'
+    delete "welcome", to: 'sessions#destroy'
 end
