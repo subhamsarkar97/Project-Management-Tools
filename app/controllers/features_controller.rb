@@ -32,7 +32,7 @@ class FeaturesController < ApplicationController
             FeatureMailer.with(feature: @feature).assign_feature.deliver
             redirect_to @feature, success: "Feature is created and a confirmation mail is sent to the assigned memeber account"
         else
-            flash[:danger] = "Fields can not stay empty !!"
+            flash[:danger] = "Fields can not stay empty or may be feature name provided is already there in database !!"
             redirect_to user_project_path(user_id: current_user.id, id: current_project.id)
         end    
     end
@@ -45,7 +45,8 @@ class FeaturesController < ApplicationController
             FeatureMailer.with(feature: @feature).update_feature.deliver
             redirect_to @feature, success: "Feature is Updated and a confirmation mail is sent to the assigned memeber account"
         else
-            render 'edit', danger: "Fields can not be empty !!"
+            flash[:danger] = "Fields can not be empty and may be feature name provided is already there in database !!"
+            redirect_to edit_feature_path(project_id: current_project.id)
         end           
     end
     
