@@ -17,6 +17,15 @@
     margin: 10px;
     font-size: 14px;
 }
+
+.custom5:hover {
+    text-decoration: none;
+}
+
+.custom5:focus {
+    outline: none;
+}
+
 .whole_body {
     position: relative;
 }
@@ -55,11 +64,20 @@ footer {
     right: 6px;
 }
 
+.heading_navbar,
 .navbar > p {
     color: #008ae6;
     font-size: 28px;
     font-weight: 700;
     padding-top: 10px;
+}
+
+.heading_navbar:hover {
+    text-decoration: none;
+}
+
+.heading_navbar:focus {
+    outline: none;
 }
 
 .navbar {

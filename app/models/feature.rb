@@ -3,7 +3,7 @@ class Feature < ApplicationRecord
     include PublicActivity::Model
     tracked owner: ->(controller, model) { controller && controller.current_user }
     has_secure_token :identity_token
-    belongs_to :user
+    
     validates :title, presence: true, length: { maximum: 255 }
     validates :description, presence: true, length: { maximum: 1000 }
     has_many :comments

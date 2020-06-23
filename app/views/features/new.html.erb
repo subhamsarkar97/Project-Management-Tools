@@ -1,5 +1,4 @@
 <%=render 'navbar'%>
-<hr>
 <section class="container create_feature_form">
     <h4>Create New Feature</h4>
     <%= form_for(@feature, html: { multipart: true }) do |f| %>
@@ -8,11 +7,6 @@
             <%= f.select(:status, Feature::INITIAL_LIST) %>
         </div>
         <p >Assign Member:--</h4>
-        
-        <div class="field">
-            <%= f.label "Members Name" %>
-            <%= collection_select( :feature, :user_id, User.all, :id, :firstname, {}, {multiple: false} ) %>
-        </div>
         <div class="field">
             <%= f.label "Members email" %>
             <%= f.select(:mailId, Feature::EMAIL_LIST) %>

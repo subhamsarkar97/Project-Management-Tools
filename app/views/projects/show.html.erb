@@ -52,7 +52,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
                 <section class="container navbar">
-                    <p>Project Management Tool</p>
+                    <%= link_to "Project Management Tool", user_path(@user_id), method: :get ,class: "heading_navbar" %>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button> 
@@ -105,7 +105,7 @@
                 document.getElementById("col3").innerText="";
             }
         </script>
-        <section class="container">
+        <section class="container dashboard">
             <h4>Project Dashboard</h4>
             <div class="row">
                 <div class="col-md-4" id="col1">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_115500) do
+ActiveRecord::Schema.define(version: 2020_06_23_083203) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 2020_06_16_115500) do
 
   create_table "features", force: :cascade do |t|
     t.integer "project_id"
-    t.integer "user_id"
     t.string "title"
     t.text "description"
     t.string "picture"

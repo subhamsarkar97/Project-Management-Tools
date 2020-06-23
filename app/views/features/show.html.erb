@@ -1,95 +1,70 @@
-<section class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <p>Project Management Tool</p>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <%= link_to "PROFILE",user_path(@user_id) , method: :get, class: "custom5"%>
-                </li>
-                <li class="nav-item active">
-                    <%= link_to "CREATE FEATURE", user_project_path(user_id: current_user.id, id: @project.id), method: :get, class: "custom5"%>
-                </li>
-                <li class="nav-item active">
-                    <%= link_to "DELETE FEATURE", feature_path, method: :delete, data: {confirm: "Are you sure?"}, class: "custom5"%>
-                </li>
-                <li class="nav-item active">
-                    <%= link_to "LOG OUT", welcome_path , method: :delete, class: "custom5"%>
-                </li>
-            </ul>
+<%= render 'navbar' %>
+<section class="container show_feature">
+    <h2>About Feature</h2>
+    <div class="about_feature">
+        <div class = "identity_token">
+            <span>Identity Token :-- <%=@feature.identity_token %></span>
         </div>
-    </nav> 
-</section>
-
- 
-    <section class="container show_feature">
-        <h2>About Feature</h2>
-        <div class="about_feature">
-            <div class = "identity_token">
-                <span>Identity Token :-- <%=@feature.identity_token %></span>
+        <hr>
+        <div class = "assigned_member">
+            <h2>Assigned Member</h2>
+            <span> Email:--  <%= @feature.mailId %><br></span>
+        </div>
+        <hr>
+        <div class= "feature_info">
+            <h3>Feature Information :-- </h3><br>
+            <div class = "feature_status">    
+                <span>Status:--<%=@feature.status%></span>
             </div>
-            <hr>
-            <div class = "assigned_member">
-                <h2>Assigned Member</h2>
-                <span> Email:--  <%= @feature.mailId %><br></span>
+            <div class = "feature_panel">    
+                <span>Panel:- <%= @feature.panels %><br></span>
+            </div>    
+            <div class = "feature_title">    
+                <span> Feature Title:--  <%= @feature.title %></span>
             </div>
-            <hr>
-            <div class= "feature_info">
-                <h3>Feature Information :-- </h3><br>
-                <div class = "feature_status">    
-                    <span>Status:--<%=@feature.status%></span>
-                </div>
-                <div class = "feature_panel">    
-                    <span>Panel:- <%= @feature.panels %><br></span>
-                </div>    
-                <div class = "feature_title">    
-                    <span> Feature Title:--  <%= @feature.title %></span>
-                </div>
-                <div class = "feature_description">    
+            <div class = "feature_description">    
                     <span>  Feature Description:--</span>
                     <%= @feature.description %>
-                </div> 
+            </div> 
             
-                <section class = "picture">
-                    <%= image_tag @feature.picture.url if @feature.picture? %>
-                    <% if @feature.picture %>    
-                        <div class = "feature_picture">
-                            <span>Feature Picture</>
-                        </div>
-                    <%end%>        
-                </section>  
-            </div>
-        
-            <div class="Task">
-                <h3>Task Information:-  </h3>
-                <span>No of Tasks:- <%= @feature.jobs.count %></span><br>
-                <span>No of Tasks Completed:-(<%=@feature.jobs.count%>/0)</span><br>
-                <%= render @feature.jobs %>       
-            </div>
-
-            <div class = "update_feature">
-                <%=link_to 'Add more task or edit feature',  edit_feature_path({project_id: @feature.project_id}), method: :get, class: 'btn btn-primary'%>
-            </div>
+            <section class = "picture">
+                <%= image_tag @feature.picture.url if @feature.picture? %>
+                <% if @feature.picture %>    
+                    <div class = "feature_picture">
+                        <span>Feature Picture</>
+                    </div>
+                <%end%>        
+            </section>  
         </div>
-    
-        <hr>
-        <h4>Comment Box</h4>
+        
+        <div class="Task">
+            <h3>Task Information:-  </h3>
+            <span>No of Tasks:- <%= @feature.jobs.count %></span><br>
+            <span>No of Tasks Completed:-(<%=@feature.jobs.count%>/0)</span><br>
+            <%= render @feature.jobs %>       
+        </div>
 
-        <section class="Chat box">
-            Comments:- 
-            <div id = "comments">
-                <%= render @feature.comments %>
-            </div>
-        </section> 
-        <hr>    
+        <div class = "update_feature">
+            <%=link_to 'Add more task or edit feature',  edit_feature_path({project_id: @feature.project_id}), method: :get, class: 'btn btn-primary'%>
+        </div>
+    </div>
     
-        <section class="Comments">
-            <h4>Chat Box</h4>
-            <div class="comment-form">
-                <span>Leave a reply:-</span>
-                <%= render 'comments/form' %>
-            <div>    
-        </section>
+    <hr>
+    <h4>Comment Box</h4>
+
+    <section class="Chat box">
+        Comments:- 
+        <div id = "comments">
+            <%= render @feature.comments %>
+        </div>
+    </section> 
+    <hr>    
+    
+    <section class="Comments">
+        <h4>Chat Box</h4>
+        <div class="comment-form">
+            <span>Leave a reply:-</span>
+            <%= render 'comments/form' %>
+        <div>    
     </section>
+</section>
