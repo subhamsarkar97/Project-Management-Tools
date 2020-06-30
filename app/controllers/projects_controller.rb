@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :authorized, only: [:create, :new, :show, :projects ,:edit, :update, :get_user, :get_project1, :get_project, :get_user_id, :view]
-    before_action :get_user, except: [:view]
+    before_action :authorized, :get_user, only: [:create, :new, :show, :projects ,:edit, :update, :get_user, :get_project1, :get_project, :get_user_id]
     before_action :get_project1, only: [:show]
     before_action :get_project, only: [:edit, :update]
     before_action :get_user_id, except: [:create, :projects]
@@ -34,6 +33,9 @@ class ProjectsController < ApplicationController
 
     def show
         session[:project_id] = @project.id
+        @feature_current = Feature.where("project_id = ? AND panels = ?", current_project.id, "Current_itteration")
+        @feature_backlog = Feature.where("project_id = ? AND panels = ?", current_project.id, "Backlog")
+        @feature_icebox = Feature.where(" project_id = ? AND panels = ? ", current_project.id, "Icebox")
     end   
     
     def projects
@@ -48,17 +50,6 @@ class ProjectsController < ApplicationController
         else
             render 'edit', danger: "Please fill the fields properly !!"
         end        
-    end 
-    
-    def view
-        @user = current_user
-        if params[:panel_search] == "Current_itteration"
-            @feature = Feature.where(" project_id = ? AND panels = ? ", current_project.id, params[:panel_search])
-        elsif params[:panel_search] == "Backlog"
-            @feature = Feature.where(" project_id = ? AND panels = ? ", current_project.id, params[:panel_search])
-        elsif params[:panel_search] == "Icebox"
-            @feature = Feature.where("project_id = ? AND panels = ? ", current_project.id, params[:panel_search])    
-        end 
     end 
     
     def destroy

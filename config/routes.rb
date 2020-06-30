@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     end
     get "create_project", to: 'users#createproject'
     get 'auth/signout'
-    get "view", to: 'projects#view', as: 'view'
     resources :password_resets, only: [:new, :create, :edit, :update]
     post "task", to:'features#create', as: 'add_task'
     resources :activities
