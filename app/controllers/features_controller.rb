@@ -45,7 +45,7 @@ class FeaturesController < ApplicationController
             FeatureMailer.with(feature: @feature).update_feature.deliver
             redirect_to @feature, success: "Feature is Updated and a confirmation mail is sent to the assigned memeber account"
         else
-            flash[:danger] = "Fields can not be empty and may be feature name provided is already there in database !!"
+            flash[:danger] = "Fields can not be empty and may be feature name provided is already there in database and please give a picture for the features !!"
             redirect_to edit_feature_path(project_id: current_project.id)
         end           
     end

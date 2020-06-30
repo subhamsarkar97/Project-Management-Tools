@@ -8,6 +8,7 @@ class Feature < ApplicationRecord
     validates :description, presence: true, length: { maximum: 1000 }
     has_many :comments
     mount_uploader :picture, PictureUploader
+    validates :picture, presence: true
     has_many :jobs, dependent: :destroy
     accepts_nested_attributes_for :jobs, allow_destroy: true
     INITIAL_LIST = ["Started"]

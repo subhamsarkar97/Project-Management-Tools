@@ -1,8 +1,6 @@
 <div class= "project"> 
     <li id="project-<%= project.id %>">   
-        <span class="user"><%= link_to project.user.firstname, project.user %></span><br>
-        <span class="content"><%= project.projectname %></span><br>
-        <span class="Dashboard"><%= link_to "Dashboard", [project.user,project] ,method: :get, :class => "btn btn-primary"%></span><br>
+        <span class="content"><%=link_to project.projectname, [project.user,project] %></span><br>
         <span class="timestamp">
             Created <%= time_ago_in_words(project.created_at) %> ago.
         </span>
