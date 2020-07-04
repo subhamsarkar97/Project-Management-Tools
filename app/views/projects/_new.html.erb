@@ -1,5 +1,5 @@
 <%= render 'projects/navbar' %>
-<section class="container new_project">
+<section class="container">
     <%= render 'shared/error_messages' %>
     <p>Create New Project</p>
     <%= form_for ([@user, @user.projects.build]) do |project| %>

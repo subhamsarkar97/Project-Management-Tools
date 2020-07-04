@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     end
         
     def new
+        @user = current_user
     end
     
     def create
@@ -12,7 +13,7 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password])       
             session[:user_id] = user.id
             params[:remember_me] == '1' ? remember(user) : forget(user)
-            redirect_to user, success: "Welcome to the project management app !!!"  
+            redirect_to user_projects_profile_path(user.id), success: "Welcome to the project management app !!!"  
         else     
             redirect_to login_path, danger: "Invalid Username or Password"
         end  

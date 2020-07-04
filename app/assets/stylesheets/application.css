@@ -47,7 +47,10 @@
 footer {
     min-height: 40px;
     background-color: #0099ff;
-    position: relative;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer_item1,

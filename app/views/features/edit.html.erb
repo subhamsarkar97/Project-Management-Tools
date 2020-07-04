@@ -1,6 +1,6 @@
 <%=render 'navbar'%>
 <section class="container edit_feature">
-    <h4>Create New Feature</h4>
+    <h4>Update the Feature</h4>
     <%= form_for(@feature, html: { multipart: true }) do |f| %>
         <div class="field">
             <%= f.label :status %>
@@ -38,7 +38,7 @@
             </div>   
         </section>
         <%= f.submit "Submit", class: "btn btn-primary" %>
-      <% end %>   
+    <% end %> 
 </section>
 
 

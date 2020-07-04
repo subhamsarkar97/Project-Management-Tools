@@ -52,6 +52,7 @@ class FeaturesController < ApplicationController
     
     def show
         session[:feature_id] = @feature.id
+        @comment = Comment.where("feature_id = ?", current_feature.id)
     end 
 
     def savetask
