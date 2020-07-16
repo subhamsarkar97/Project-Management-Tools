@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
         @comment = @feature.comments.new(comments_params)
         @comment.save!
         #mail when a comment is posted
-        CommentMailer.comment_mail(@comment).deliver
+        CommentMailer.delay.comment_mail(@comment)
         respond_to do |format|
             format.html { redirect_to feature_path(@feature) }
             format.js

@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
     def create
         @project = @user.projects.build(post_params)
         if @project.save
-            ProjectMailer.with(user: @user).add_project.deliver
+            ProjectMailer.delay.add_project(user: @user)
             session[:project_id] = @project.id
             redirect_to user_projects_profile_path, success: "Projects is created and a mail is sent"
         else
@@ -59,7 +59,7 @@ class ProjectsController < ApplicationController
             feature.destroy
         end
         @project.destroy
-        ProjectMailer.with(user: @user).add_project.deliver
+        ProjectMailer.delay.delete_project(user: @user)
         redirect_to user_path(current_user.id), success: "Project is deleted as well as the features if any and a confirmation is also send !!"  
     end    
 

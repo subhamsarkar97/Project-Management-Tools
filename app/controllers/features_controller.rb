@@ -29,7 +29,7 @@ class FeaturesController < ApplicationController
         @feature = Feature.new(feature_params)
         if @feature.save
             session[:feature_id] = @feature.id
-            FeatureMailer.with(feature: @feature).assign_feature.deliver
+            FeatureMailer.delay.assign_feature(feature: @feature)
             redirect_to @feature, success: "Feature is created and a confirmation mail is sent to the assigned memeber account"
         else
             flash[:danger] = "Fields can not stay empty or may be feature name provided is already there in database !!"
@@ -64,7 +64,7 @@ class FeaturesController < ApplicationController
     def destroy
         @feature = Feature.find(params[:id])
         @feature.destroy
-        DeleteFeatureMailer.with(feature: @feature).delete_mail.deliver
+        DeleteFeatureMailer.delay.delete_mail(feature: @feature)
         redirect_to user_path(current_user.id), success: "Feature is deleted and a confirmation mail is sent."
     end    
 
