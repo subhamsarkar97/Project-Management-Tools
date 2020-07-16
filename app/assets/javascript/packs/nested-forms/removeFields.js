@@ -1,30 +1,30 @@
 class removeFields {
     constructor() {
-        this.iterateLinks()
+        this.iterateLinks();
     }
-  
+
     iterateLinks() {
-        document.addEventListener('click', e => {
-            if (e.target && e.target.className == 'remove_fields') {
-                this.handleClick(e.target, e)
+        document.addEventListener("click", (e) => {
+            if (e.target && e.target.className == "remove_fields") {
+                this.handleClick(e.target, e);
             }
-        })
+        });
     }
-  
+
     handleClick(link, e) {
-        if (!link || !e) return
-        e.preventDefault()
-        let fieldParent = link.closest('.nested-fields')
-      
+        if (!link || !e) return;
+        e.preventDefault();
+        let fieldParent = link.closest(".nested-fields");
+
         let deleteField = fieldParent
-        ? fieldParent.querySelector('input[type="hidden"]')
-        : null
+            ? fieldParent.querySelector('input[type="hidden"]')
+            : null;
         if (deleteField) {
-            deleteField.value = 1
-            fieldParent.style.display = 'none'
+            deleteField.value = 1;
+            fieldParent.style.display = "none";
         }
     }
 }
-  
-  // Wait for turbolinks to load, otherwise `document.querySelectorAll()` won't work
-  window.addEventListener('turbolinks:load', () => new removeFields())
+
+// Wait for turbolinks to load, otherwise `document.querySelectorAll()` won't work
+window.addEventListener("turbolinks:load", () => new removeFields());

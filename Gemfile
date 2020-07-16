@@ -6,6 +6,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.13'
 gem 'bootsnap', '>= 1.4.2', require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'carrierwave', '~> 2.1'
+gem 'delayed_job_active_record'
 gem 'fog-aws', '~> 3.6', '>= 3.6.3'
 gem 'httparty', '~> 0.17.1'
 gem 'image_processing', '~> 1.2'

@@ -5,6 +5,5 @@ class ActivitiesController < ApplicationController
         @user_id = current_user.id
         @activities = PublicActivity::Activity.order("Created_at desc")   
     end
-
 end
   

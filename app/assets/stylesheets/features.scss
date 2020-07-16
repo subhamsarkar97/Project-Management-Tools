@@ -29,7 +29,8 @@
 .feature_status,
 .feature_panel,
 .feature_title,
-.feature_description {
+.feature_description,
+.identity_token {
     margin-bottom: 10px;
 }
 
@@ -73,4 +74,8 @@
 
 .update_feature {
     margin: 20px 0px;
+}
+
+.assigned_member > p {
+    font-size: 24px;
 }
