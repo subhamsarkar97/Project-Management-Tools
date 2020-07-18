@@ -10,7 +10,7 @@ class Feature < ApplicationRecord
     mount_uploader :picture, PictureUploader
     has_many :jobs, dependent: :destroy
     accepts_nested_attributes_for :jobs, allow_destroy: true
-    INITIAL_LIST = ["Started"]
+    INITIAL_LIST = ["Not Started Yet"]
     STATUS_LIST = ["Started", "Finished", "Delivered"]
     PANEL_LIST = ["Current_itteration", "Backlog", "Icebox"]
     EMAIL_LIST = []

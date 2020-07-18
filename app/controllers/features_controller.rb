@@ -42,7 +42,7 @@ class FeaturesController < ApplicationController
 
     def update
         if @feature.update(feature_params)
-            FeatureMailer.with(feature: @feature).update_feature.deliver
+            FeatureMailer.delay.update_feature(feature: @feature)
             redirect_to @feature, success: "Feature is Updated and a confirmation mail is sent to the assigned memeber account"
         else
             flash[:danger] = "Fields can not be empty and may be feature name provided is already there in database and please give a picture for the features !!"

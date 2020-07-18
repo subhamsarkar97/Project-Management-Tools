@@ -2,36 +2,11 @@ class ApplicationController < ActionController::Base
     before_action :authorized
     helper_method :current_user
     helper_method :logged_in?
-    before_action :set_user
 
     include PublicActivity::StoreController
 
     add_flash_types :danger, :info, :warning, :success
 
-    def save_in_params(auth_hash)
-        session[:graph_token_hash] = auth_hash.dig(:credentials)
-        session[:firstname] = auth_hash.dig(:extra, :raw_info, :displayName)
-        session[:username] = auth_hash.dig(:extra, :raw_info, :mail) ||
-                               auth_hash.dig(:extra, :raw_info, :userPrincipalName)
-    end
-
-    def access_token
-        session[:graph_token_hash][:token]
-    end
-    
-    def firstname
-        session[:firstname]
-    end
-    
-    def username
-        session[:username]
-    end
-    
-    def set_user
-        @user_name = firstname
-        @user_email = username
-    end
-      
     def current_user
         if (user_id = session[:user_id])
             @current_user ||= User.find_by(id: user_id)
@@ -41,9 +16,6 @@ class ApplicationController < ActionController::Base
                 session[:user_id] = user.id
                 @current_user = user
             end
-        else
-            @username = firstname
-            @useremail = username   
         end
     end
    

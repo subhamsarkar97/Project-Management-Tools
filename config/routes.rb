@@ -2,6 +2,7 @@ Rails.application.routes.draw do
     resources :users do
         resources :projects, except: [:index] 
         get "projects", to: 'projects#projects', as: 'projects_profile'
+        get "assigned_projects", to: 'projects#assigned_projects', as: 'assigned_project'
     end 
     resources :features do
         resources :comments

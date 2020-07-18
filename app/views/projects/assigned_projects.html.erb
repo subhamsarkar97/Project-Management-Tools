@@ -1,0 +1,16 @@
+<%= render 'navbar' %>
+<section class="container">
+    <h2 class="text-center">DashBoard</h2> 
+    <span><%=pluralize(@projects.count,"Project")%></span><br>
+    <hr>
+    <ol>
+        <% @projects.each do |project| %>    
+            <div class = "assigned_projects" >    
+                <span class="content"><%=link_to project.projectname, [project.user,project] %></span><br>  
+                <span class="timestamp_assigned_project">
+                    Created <%= time_ago_in_words(project.created_at) %> ago.
+                </span>
+            </div>     
+        <%end%>    
+    </ol>
+</section>

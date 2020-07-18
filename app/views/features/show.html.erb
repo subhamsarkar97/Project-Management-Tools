@@ -69,18 +69,19 @@
             <%=link_to 'Add more task or edit feature',  edit_feature_path({project_id: @feature.project_id}), method: :get, class: 'btn btn-primary'%>
         </div>
     </div>
-    
-    <section class="Chat box">
-        <h4>Comment Box</h4>
-        Comments:- 
-        <div id = "comments">
-            <%= render @feature.comments %>
-        </div>
-    </section>     
-    <hr>    
+
+    <section class="Chat_box">
+        <div id = "chat_box">
+            <h4>Comment Box</h4>
+            Comments:- 
+            <div id = "comments">
+                <%= render @feature.comments %>
+            </div>
+        </div>    
+    </section> 
+    <hr>
     
     <section class="Comments">
-        <h4>Chat Box</h4>
         <div class="comment-form">
             <span>Leave a reply:-</span>
             <%= render 'comments/form' %>

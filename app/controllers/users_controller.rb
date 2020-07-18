@@ -9,23 +9,28 @@ class UsersController < ApplicationController
     def new
         @user = User.new
     end
+
+    def callback
+        # Access the authentication hash for omniauth
+        data = request.env['omniauth.auth']
+        # Temporary for testing!
+        create data
+        
+        redirect_to root_url
+    end
+    
   
-    def create
+    def create(data)
         @user = User.new(user_params)
         if @user.save
-            UserMailer.with(user: @user).welcome_email.deliver
+            UserMailer.delay.welcome_email(user: @user)
             session[:user_id] = @user.id
             redirect_to user_path(@user), success: "Welcome to the project management app !!!"
         else
             redirect_to new_user_path, danger: "Please fill all the field correctly with an unique EmailId and password with minimum 8 charecter and please put a profile picture"
         end 
-    end
+    end    
 
-    def callback
-        # Access the authentication hash for omniauth
-        data = request.env['omniauth.auth']
-        render json: data.to_json
-    end
     
     def createproject
         @user = current_user

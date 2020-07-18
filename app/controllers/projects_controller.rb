@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :authorized, :get_user, only: [:create, :new, :show, :projects ,:edit, :update, :get_user, :get_project1, :get_project, :get_user_id]
+    before_action :authorized, :get_user, only: [:create, :new, :show, :projects ,:edit, :update, :get_user, :get_project1, :get_project, :get_user_id, :assigned_projects]
     before_action :get_project1, only: [:show]
     before_action :get_project, only: [:edit, :update]
     before_action :get_user_id, except: [:create, :projects]
@@ -39,7 +39,17 @@ class ProjectsController < ApplicationController
     end   
     
     def projects
-    end   
+    end 
+    
+    def assigned_projects
+        list = []
+        @features = Feature.where(mailId: current_user.username)  
+        @features.each do |feature|
+            @project = Project.find_by(id: feature.project_id)
+            list.append(@project)
+        end
+        @projects = list.uniq
+    end    
 
     def edit
     end    
