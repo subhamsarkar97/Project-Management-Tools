@@ -24,7 +24,7 @@ gem 'public_activity', '~> 1.6', '>= 1.6.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
