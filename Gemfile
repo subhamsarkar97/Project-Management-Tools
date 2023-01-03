@@ -8,7 +8,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.1'
 gem 'delayed_job_active_record'
 gem 'fog-aws', '~> 3.6', '>= 3.6.3'
-gem 'httparty', '~> 0.17.1'
+gem 'httparty', '~> 0.21.0'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.4'
